@@ -1,0 +1,74 @@
+{
+  "type": "record",
+  "name": "Configuration",
+  "namespace": "eu.driver",
+  "doc": "Configuration message, mainly for inspecting what a client is producing and consuming.",
+  "fields": [{
+    "name": "clientId",
+    "doc": "ID of the client",
+    "type": "string"
+  }, {
+    "name": "kafkaHost",
+    "doc": "URI of the Kafka broker",
+    "type": "string"
+  }, {
+    "name": "schemaRegistry",
+    "doc": "URI of the schema registry",
+    "type": "string"
+  }, {
+    "name": "autoRegisterSchemas",
+    "doc": "If true, register schema's on startup automatically",
+    "type": "boolean"
+  }, {
+    "name": "schemaFolder",
+    "doc": "Location of the schema's",
+    "type": "string"
+  }, {
+    "name": "fetchAllVersions",
+    "doc": "Fetch all schema versions, or only the last one",
+    "type": "boolean"
+  }, {
+    "name": "fetchAllSchemas",
+    "doc": "Fetch all schema's, or only the ones defined in the configuration at startup",
+    "type": "boolean"
+  }, {
+    "name": "heartbeatInterval",
+    "doc": "Time in msec how often you send out a heartbeat. Default 5000",
+    "type": "int"
+  }, {
+    "name": "consume",
+    "doc": "Topics you are consuming",
+    "type": { "type": "array", "items": "string" }
+  }, {
+    "name": "produce",
+    "doc": "Topics you are producing",
+    "type": { "type": "array", "items": "string" }
+  }, {
+    "name": "logging",
+    "doc": "Logging details, may be replaced by an enum",
+    "type": {
+      "type": "record",
+      "fields": [{
+        "name": "logToFile",
+        "doc": "If set [0..5], log to file as specified in logFile",
+        "type": ["null", "number"],
+        "default": null
+      }, {
+        "name": "logFile",
+        "doc": "Name of the log file",
+        "type": ["null", "string"],
+        "default": null
+      }, {
+        "name": "logToConsole",
+        "doc": "If set [0..5], log to console. Number indicates logging level",
+        "type": ["null", "number"],
+        "default": null
+      }, {
+        "name": "logToKafka",
+        "doc": "If set [0..5], log to Kafka",
+        "type": ["null", "number"],
+        "default": null
+      }]
+    }
+  }]
+}

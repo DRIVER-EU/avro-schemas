@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "name": "Log",
+  "namespace": "eu.driver",
+  "doc": "Log message, especially useful to inform others of errors that are occurring.",
+  "fields": [{
+    "name": "id",
+    "doc": "Client id",
+    "type": "string"
+  }, {
+    "name": "log",
+    "doc": "Actual log message",
+    "type": "string"
+  }]
+}

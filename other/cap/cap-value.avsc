@@ -1,0 +1,448 @@
+{
+  "name": "alert",
+  "namespace": "eu.driver",
+  "doc": "CAP Alert Message (version 1.2)",
+  "type": "record",
+  "fields": [
+    {
+      "name": "identifier",
+      "type": "string"
+    },
+    {
+      "name": "sender",
+      "type": "string"
+    },
+    {
+      "name": "sent",
+      "type": "string",
+      "doc": "TODO xs:dateTime Used pattern"
+    },
+    {
+      "name": "status",
+      "type": {
+        "name": "status",
+        "namespace": "driver.eu",
+        "type": "enum",
+        "symbols": [
+          "Actual",
+          "Exercise",
+          "System",
+          "Test",
+          "Draft"
+        ]
+      }
+    },
+    {
+      "name": "msgType",
+      "type": {
+        "name": "msgType",
+        "namespace": "driver.eu",
+        "type": "enum",
+        "symbols": [
+          "Alert",
+          "Update",
+          "Cancel",
+          "Ack",
+          "Error"
+        ]
+      }
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "scope",
+      "type": {
+        "name": "scope",
+        "namespace": "driver.eu",
+        "type": "enum",
+        "symbols": [
+          "Public",
+          "Restricted",
+          "Private"
+        ]
+      }
+    },
+    {
+      "name": "restriction",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "addresses",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "code",
+      "type": [
+        "null",
+        "string",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "note",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "references",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "incidents",
+      "type": "string",
+      "default": "null"
+    },
+    {
+      "name": "info",
+      "type": [
+        "null",
+        {
+          "name": "info",
+          "namespace": "driver.eu",
+          "type": "record",
+          "fields": [
+            {
+              "name": "language",
+              "default": "en-US",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            {
+              "name": "category",
+              "type": [
+                {
+                  "name": "category",
+                  "namespace": "driver.eu",
+                  "type": "enum",
+                  "symbols": [
+                    "Geo",
+                    "Met",
+                    "Safety",
+                    "Security",
+                    "Rescue",
+                    "Fire",
+                    "Health",
+                    "Env",
+                    "Transport",
+                    "Infra",
+                    "CBRNE",
+                    "Other"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "driver.eu.category"
+                }
+              ]
+            },
+            {
+              "name": "event",
+              "type": "string"
+            },
+            {
+              "name": "responseType",
+              "type": [
+                "null",
+                {
+                  "name": "responseType",
+                  "namespace": "driver.eu",
+                  "type": "enum",
+                  "symbols": [
+                    "Shelter",
+                    "Evacuate",
+                    "Prepare",
+                    "Execute",
+                    "Avoid",
+                    "Monitor",
+                    "Assess",
+                    "AllClear",
+                    "None"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "driver.eu.responseType"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "urgency",
+              "type": {
+                "name": "urgency",
+                "namespace": "driver.eu",
+                "type": "enum",
+                "symbols": [
+                  "Immediate",
+                  "Expected",
+                  "Future",
+                  "Past",
+                  "Unknown"
+                ]
+              }
+            },
+            {
+              "name": "severity",
+              "type": {
+                "name": "severity",
+                "namespace": "driver.eu",
+                "type": "enum",
+                "symbols": [
+                  "Extreme",
+                  "Severe",
+                  "Moderate",
+                  "Minor",
+                  "Unknown"
+                ]
+              }
+            },
+            {
+              "name": "certainty",
+              "type": {
+                "name": "certainty",
+                "namespace": "driver.eu",
+                "type": "enum",
+                "symbols": [
+                  "Observed",
+                  "Likely",
+                  "Possible",
+                  "Unlikely",
+                  "Unknown"
+                ]
+              }
+            },
+            {
+              "name": "audience",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "eventCode",
+              "type": [
+                "null",
+                {
+                  "name": "valueNamePair",
+                  "namespace": "driver.eu",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "valueName",
+                      "type": "string"
+                    },
+                    {
+                      "name": "value",
+                      "type": "string"
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "driver.eu.valueNamePair"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "effective",
+              "doc": "TODO: datetime",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "onset",
+              "doc": "TODO: datetime",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "expires",
+              "doc": "TODO: datetime",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "senderName",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "headline",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "instruction",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "web",
+              "doc": "TODO: anyURI",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "contact",
+              "type": "string",
+              "default": "null"
+            },
+            {
+              "name": "parameter",
+              "type": [
+                "null",
+                "driver.eu.valueNamePair",
+                {
+                  "type": "array",
+                  "items": "driver.eu.valueNamePair"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "resource",
+              "type": [
+                "null",
+                {
+                  "name": "resource",
+                  "namespace": "driver.eu",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "resourceDesc",
+                      "type": "string"
+                    },
+                    {
+                      "name": "size",
+                      "type": [
+                        "null",
+                        "int"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "uri",
+                      "doc": "TODO, anyURI",
+                      "type": "string",
+                      "default": "null"
+                    },
+                    {
+                      "name": "deferUri",
+                      "type": "string",
+                      "default": "null"
+                    },
+                    {
+                      "name": "digest",
+                      "type": "string",
+                      "default": "null"
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "driver.eu.resource"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "area",
+              "type": [
+                "null",
+                {
+                  "name": "area",
+                  "namespace": "driver.eu",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "areaDesc",
+                      "type": "string"
+                    },
+                    {
+                      "name": "polygon",
+                      "type": [
+                        "null",
+                        "string",
+                        {
+                          "type": "array",
+                          "items": "string"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "circle",
+                      "type": [
+                        "null",
+                        "string",
+                        {
+                          "type": "array",
+                          "items": "string"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "geocode",
+                      "type": [
+                        "null",
+                        "driver.eu.valueNamePair",
+                        {
+                          "type": "array",
+                          "items": "driver.eu.valueNamePair"
+                        }
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "altitude",
+                      "type": [
+                        "null",
+                        "double"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "ceiling",
+                      "type": [
+                        "null",
+                        "double"
+                      ],
+                      "default": null
+                    }
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "driver.eu.area"
+                }
+              ],
+              "default": null
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "items": "driver.eu.info"
+        }
+      ],
+      "default": null
+    }
+  ]
+}
