@@ -32,3 +32,13 @@ Each folder is subdivided into folders per topic. The `core` topics are preceded
 - Type names are written in PascalCase with a leading capital
 - Field names are written in camelCase with a small cap
 - Default domain is eu.driver.model.YYY, where YYY is either core for the core messages, or something else otherwise.
+
+## Observations creating an AVRO schema
+
+The AVRO schema is specified [here](https://avro.apache.org/docs/current/spec.html). When creating a new schema from scratch based on an XML schema definition (XSD), most conversions are quite straightforward. However, there were some small issues that I observed while converting the [CAP XML Schema](https://github.com/DRIVER-EU/node-test-bed-adapter/blob/master/data/cap/cap.xsd) definition to a [CAP AVRO schema](https://github.com/DRIVER-EU/node-test-bed-adapter/blob/master/data/cap/cap.avsc):
+
+- The CAP xsd contains an `any` element, meaning that you can put anything you like in the CAP message. Besides the fact that I don't consider this a good idea, I also do not know how to encode this in AVRO. So for now, I have ignored it.
+- The CAP schema uses `xs:dateTime`, which is basically a string that can be validated using a regular expression pattern. In AVRO, such functionality seems to be missing, and I represented it using a string. Alternatively, we could use a [LogicalType](https://avro.apache.org/docs/current/spec.html#Logical+Types) for this, but those must be defined in each adapter.
+- The CAP schema uses `minOccors = "0"` (optional element). I've converted this to an AVRO UnionType, for example when the type is `xs:string`, it becomes `type: ["null", "string"], default: null`.
+- The CAP schema uses `maxOccors = "unbounded"` (array). I've converted this to an AVRO UnionType, for example when the type is `xs:string`, it becomes `type: ["null", "string", { type: "array", items: "string" }], default: null`. So the element is optional (type is null and default is null), a simple string, or a string array.
+- The CAP schema contains many types: each type has been converted to an AVRO `enum` with symbols (e.g. for `simpleType`)), or `record` (e.g. for `complexType`). As a consequence, the AVRO schema may contain many types, in which case we need to specify the actual (top) type that we will use for validating/encoding/decoding messages.
