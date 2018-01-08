@@ -20,7 +20,7 @@ To register a new schema pair, you have several possibilities:
 ## Known schema's
 
 In this repository, we store the known schema's, divided in two main folders:
-- `core`: Contains the core schema's for use in the test-bed, e.g. for logging, configuration and heartbeat. These should always be registered in the schema registry.
+- `core`: Contains the core schema's for use in the test-bed, e.g. for logging, configuration and heartbeat. These should always be registered in the schema registry. Also note that core schema's should be prefixed with 'connect-status-' in order to show as system topics. See this issue [here](https://github.com/Landoop/kafka-topics-ui/issues/99).
 - `other`: Contains schema's that may be useful during a trial, depending on the systems that are connected.
 
 Each folder is subdivided into folders per topic. The `core` topics are preceded by an underscore by convention, as to indicate that we are dealing with system topics.
@@ -28,7 +28,7 @@ Each folder is subdivided into folders per topic. The `core` topics are preceded
 ## Conventions
 
 - All messages are Keyed message, i.e. they contain a key (typically, the id of the service as string), and a value.
-- Both key and value are encoded using the schema's, named TOPIC-key and TOPIC-value, respectively.
+- Both key and value are encoded using the schema's, named TOPIC-key and TOPIC-value, respectively. Otherwise, the Kafka-REST service does not handle them correctly (for now).
 - Type names are written in PascalCase with a leading capital
 - Field names are written in camelCase with a small cap
 - Default domain is eu.driver.model.YYY, where YYY is either core for the core messages, or something else otherwise.
