@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Log",
-  "namespace": "eu.driver",
+  "namespace": "eu.driver.model.core",
   "doc": "Log message, especially useful to inform others of errors that are occurring.",
   "fields": [{
     "name": "id",

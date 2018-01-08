@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Configuration",
-  "namespace": "eu.driver",
+  "namespace": "eu.driver.model.core",
   "doc": "Configuration message, mainly for inspecting what a client is producing and consuming.",
   "fields": [{
     "name": "clientId",
