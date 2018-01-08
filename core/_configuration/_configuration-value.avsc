@@ -47,11 +47,12 @@
     "name": "logging",
     "doc": "Logging details, may be replaced by an enum",
     "type": {
+      "name": "LogSettings",
       "type": "record",
       "fields": [{
         "name": "logToFile",
         "doc": "If set [0..5], log to file as specified in logFile",
-        "type": ["null", "number"],
+        "type": ["null", "int"],
         "default": null
       }, {
         "name": "logFile",
@@ -61,12 +62,12 @@
       }, {
         "name": "logToConsole",
         "doc": "If set [0..5], log to console. Number indicates logging level",
-        "type": ["null", "number"],
+        "type": ["null", "int"],
         "default": null
       }, {
         "name": "logToKafka",
         "doc": "If set [0..5], log to Kafka",
-        "type": ["null", "number"],
+        "type": ["null", "int"],
         "default": null
       }]
     }
