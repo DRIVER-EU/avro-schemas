@@ -24,3 +24,11 @@ In this repository, we store the known schema's, divided in two main folders:
 - `other`: Contains schema's that may be useful during a trial, depending on the systems that are connected.
 
 Each folder is subdivided into folders per topic. The `core` topics are preceded by an underscore by convention, as to indicate that we are dealing with system topics.
+
+## Conventions
+
+- All messages are Keyed message, i.e. they contain a key (typically, the id of the service as string), and a value.
+- Both key and value are encoded using the schema's, named TOPIC-key and TOPIC-value, respectively.
+- Type names are written in PascalCase with a leading capital
+- Field names are written in camelCase with a small cap
+- Default domain is eu.driver.model.YYY, where YYY is either core for the core messages, or something else otherwise.

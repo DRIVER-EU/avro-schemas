@@ -1,6 +1,6 @@
 {
-  "name": "alert",
-  "namespace": "eu.driver",
+  "name": "eu.driver.model.cap.Alert",
+  "namespace": "eu.driver.model.cap",
   "doc": "CAP Alert Message (version 1.2)",
   "type": "record",
   "fields": [
@@ -20,8 +20,8 @@
     {
       "name": "status",
       "type": {
-        "name": "status",
-        "namespace": "driver.eu",
+        "name": "Status",
+        "namespace": "eu.driver.model.cap",
         "type": "enum",
         "symbols": [
           "Actual",
@@ -35,8 +35,8 @@
     {
       "name": "msgType",
       "type": {
-        "name": "msgType",
-        "namespace": "driver.eu",
+        "name": "MsgType",
+        "namespace": "eu.driver.model.cap",
         "type": "enum",
         "symbols": [
           "Alert",
@@ -55,8 +55,8 @@
     {
       "name": "scope",
       "type": {
-        "name": "scope",
-        "namespace": "driver.eu",
+        "name": "Scope",
+        "namespace": "eu.driver.model.cap",
         "type": "enum",
         "symbols": [
           "Public",
@@ -107,8 +107,8 @@
       "type": [
         "null",
         {
-          "name": "info",
-          "namespace": "driver.eu",
+          "name": "Info",
+          "namespace": "eu.driver.model.cap",
           "type": "record",
           "fields": [
             {
@@ -123,8 +123,8 @@
               "name": "category",
               "type": [
                 {
-                  "name": "category",
-                  "namespace": "driver.eu",
+                  "name": "Category",
+                  "namespace": "eu.driver.model.cap",
                   "type": "enum",
                   "symbols": [
                     "Geo",
@@ -143,7 +143,7 @@
                 },
                 {
                   "type": "array",
-                  "items": "driver.eu.category"
+                  "items": "eu.driver.model.cap.Category"
                 }
               ]
             },
@@ -156,8 +156,8 @@
               "type": [
                 "null",
                 {
-                  "name": "responseType",
-                  "namespace": "driver.eu",
+                  "name": "ResponseType",
+                  "namespace": "eu.driver.model.cap",
                   "type": "enum",
                   "symbols": [
                     "Shelter",
@@ -173,7 +173,7 @@
                 },
                 {
                   "type": "array",
-                  "items": "driver.eu.responseType"
+                  "items": "eu.driver.model.cap.ResponseType"
                 }
               ],
               "default": null
@@ -181,8 +181,8 @@
             {
               "name": "urgency",
               "type": {
-                "name": "urgency",
-                "namespace": "driver.eu",
+                "name": "Urgency",
+                "namespace": "eu.driver.model.cap",
                 "type": "enum",
                 "symbols": [
                   "Immediate",
@@ -196,8 +196,8 @@
             {
               "name": "severity",
               "type": {
-                "name": "severity",
-                "namespace": "driver.eu",
+                "name": "Severity",
+                "namespace": "eu.driver.model.cap",
                 "type": "enum",
                 "symbols": [
                   "Extreme",
@@ -211,8 +211,8 @@
             {
               "name": "certainty",
               "type": {
-                "name": "certainty",
-                "namespace": "driver.eu",
+                "name": "Certainty",
+                "namespace": "eu.driver.model.cap",
                 "type": "enum",
                 "symbols": [
                   "Observed",
@@ -233,8 +233,8 @@
               "type": [
                 "null",
                 {
-                  "name": "valueNamePair",
-                  "namespace": "driver.eu",
+                  "name": "ValueNamePair",
+                  "namespace": "eu.driver.model.cap",
                   "type": "record",
                   "fields": [
                     {
@@ -249,7 +249,7 @@
                 },
                 {
                   "type": "array",
-                  "items": "driver.eu.valueNamePair"
+                  "items": "eu.driver.model.cap.ValueNamePair"
                 }
               ],
               "default": null
@@ -307,10 +307,10 @@
               "name": "parameter",
               "type": [
                 "null",
-                "driver.eu.valueNamePair",
+                "eu.driver.model.cap.ValueNamePair",
                 {
                   "type": "array",
-                  "items": "driver.eu.valueNamePair"
+                  "items": "eu.driver.model.cap.ValueNamePair"
                 }
               ],
               "default": null
@@ -320,8 +320,8 @@
               "type": [
                 "null",
                 {
-                  "name": "resource",
-                  "namespace": "driver.eu",
+                  "name": "Resource",
+                  "namespace": "eu.driver.model.cap",
                   "type": "record",
                   "fields": [
                     {
@@ -356,7 +356,7 @@
                 },
                 {
                   "type": "array",
-                  "items": "driver.eu.resource"
+                  "items": "eu.driver.model.cap.Resource"
                 }
               ],
               "default": null
@@ -366,8 +366,8 @@
               "type": [
                 "null",
                 {
-                  "name": "area",
-                  "namespace": "driver.eu",
+                  "name": "Area",
+                  "namespace": "eu.driver.model.cap",
                   "type": "record",
                   "fields": [
                     {
@@ -402,10 +402,10 @@
                       "name": "geocode",
                       "type": [
                         "null",
-                        "driver.eu.valueNamePair",
+                        "eu.driver.model.cap.ValueNamePair",
                         {
                           "type": "array",
-                          "items": "driver.eu.valueNamePair"
+                          "items": "eu.driver.model.cap.ValueNamePair"
                         }
                       ],
                       "default": null
@@ -430,7 +430,7 @@
                 },
                 {
                   "type": "array",
-                  "items": "driver.eu.area"
+                  "items": "eu.driver.model.cap.Area"
                 }
               ],
               "default": null
@@ -439,7 +439,7 @@
         },
         {
           "type": "array",
-          "items": "driver.eu.info"
+          "items": "eu.driver.model.cap.Info"
         }
       ],
       "default": null
