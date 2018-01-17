@@ -50,7 +50,7 @@
     {
       "name": "source",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "scope",
@@ -68,12 +68,12 @@
     {
       "name": "restriction",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "addresses",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "code",
@@ -85,22 +85,22 @@
           "items": "string"
         }
       ],
-      "default": "null"
+      "default": null
     },
     {
       "name": "note",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "references",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "incidents",
       "type": ["null", "string"],
-      "default": "null"
+      "default": null
     },
     {
       "name": "info",
@@ -226,7 +226,7 @@
             {
               "name": "audience",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "eventCode",
@@ -258,50 +258,50 @@
               "name": "effective",
               "doc": "TODO: datetime",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "onset",
               "doc": "TODO: datetime",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "expires",
               "doc": "TODO: datetime",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "senderName",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "headline",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "description",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "instruction",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "web",
               "doc": "TODO: anyURI",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "contact",
               "type": ["null", "string"],
-              "default": "null"
+              "default": null
             },
             {
               "name": "parameter",
@@ -340,17 +340,17 @@
                       "name": "uri",
                       "doc": "TODO, anyURI",
                       "type": ["null", "string"],
-                      "default": "null"
+                      "default": null
                     },
                     {
                       "name": "deferUri",
                       "type": ["null", "string"],
-                      "default": "null"
+                      "default": null
                     },
                     {
                       "name": "digest",
                       "type": ["null", "string"],
-                      "default": "null"
+                      "default": null
                     }
                   ]
                 },
