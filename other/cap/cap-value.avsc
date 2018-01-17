@@ -49,7 +49,7 @@
     },
     {
       "name": "source",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
@@ -67,12 +67,12 @@
     },
     {
       "name": "restriction",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
       "name": "addresses",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
@@ -85,21 +85,21 @@
           "items": "string"
         }
       ],
-      "default": null
+      "default": "null"
     },
     {
       "name": "note",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
       "name": "references",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
       "name": "incidents",
-      "type": "string",
+      "type": ["null", "string"],
       "default": "null"
     },
     {
@@ -225,7 +225,7 @@
             },
             {
               "name": "audience",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
@@ -257,50 +257,50 @@
             {
               "name": "effective",
               "doc": "TODO: datetime",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "onset",
               "doc": "TODO: datetime",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "expires",
               "doc": "TODO: datetime",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "senderName",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "headline",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "description",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "instruction",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "web",
               "doc": "TODO: anyURI",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
               "name": "contact",
-              "type": "string",
+              "type": ["null", "string"],
               "default": "null"
             },
             {
@@ -339,17 +339,17 @@
                     {
                       "name": "uri",
                       "doc": "TODO, anyURI",
-                      "type": "string",
+                      "type": ["null", "string"],
                       "default": "null"
                     },
                     {
                       "name": "deferUri",
-                      "type": "string",
+                      "type": ["null", "string"],
                       "default": "null"
                     },
                     {
                       "name": "digest",
-                      "type": "string",
+                      "type": ["null", "string"],
                       "default": "null"
                     }
                   ]

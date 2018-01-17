@@ -1,4 +1,11 @@
 {
-  "name": "id",
-  "type": "string"
+  "type": "record",
+  "name": "LogKey",
+  "namespace": "eu.driver.model.core",
+  "doc": "Key of a Log message",
+  "fields": [{
+  	"name": "id",
+  	"type": "string",
+  	"doc": "The client id of the sending adapter"
+  }]
 }

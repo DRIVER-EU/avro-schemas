@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "CapKey",
-  "namespace": "eu.driver.model.cap",
-  "doc": "Key of a CAP Alert message",
+  "name": "GenericKey",
+  "namespace": "eu.driver.model.core",
+  "doc": "Key of a Generic Record",
   "fields": [{
   	"name": "id",
   	"type": "string",
