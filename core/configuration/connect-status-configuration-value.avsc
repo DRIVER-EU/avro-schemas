@@ -45,7 +45,22 @@
     "doc": "Topics you are consuming",
     "type": ["null", {
       "type": "array",
-      "items": "string"
+      "items": {
+        "name": "OffsetFetchRequest",
+        "type": "record",
+        "fields": [{
+          "name": "topic",
+          "type": "string"
+        }, {
+          "name": "offset",
+          "type": ["null", "int" ],
+          "default": null
+        }, {
+          "name": "partition",
+          "type": ["null", "int" ],
+          "default": null
+        }]
+      }
     }],
     "default": null
   }, {
