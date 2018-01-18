@@ -16,26 +16,6 @@
     "doc": "URI of the schema registry",
     "type": "string"
   }, {
-    "name": "autoRegisterSchemas",
-    "doc": "If true, register schema's on startup automatically",
-    "type": ["null", "boolean"],
-    "default": null
-  }, {
-    "name": "schemaFolder",
-    "doc": "Location of the schema's",
-    "type": ["null", "string"],
-    "default": null
-  }, {
-    "name": "fetchAllVersions",
-    "doc": "Fetch all schema versions, or only the last one",
-    "type": ["null", "boolean"],
-    "default": null
-  }, {
-    "name": "fetchAllSchemas",
-    "doc": "Fetch all schema's, or only the ones defined in the configuration at startup",
-    "type": ["null", "boolean"],
-    "default": null
-  }, {
     "name": "heartbeatInterval",
     "doc": "Time in msec how often you send out a heartbeat. Default 5000",
     "type": ["null", "int"],
