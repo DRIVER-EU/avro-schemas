@@ -1,0 +1,198 @@
+[{
+  "name": "BoundingBox",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "The value of the bbox member MUST be an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. The 'bbox' values define shapes with edges that follow lines of constant longitude, latitude, and elevation.",
+  "type": "array",
+  "items": "float"
+}, {
+  "name": "Point",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "Describes a point geometry",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["Point"]
+    },
+    "default": "Point"
+  }, {
+    "name": "coordinates",
+    "type": {
+      "type": "array",
+      "items": "float"
+    }
+  }]
+}, {
+  "name": "LineString",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "Describes a LineString geometry",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["LineString"]
+    },
+    "default": "LineString"
+  }, {
+    "name": "coordinates",
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": "float"
+      }
+    }
+  }]
+}, {
+  "name": "MultiLineString",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "Describes a MultiLineString geometry",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["MultiLineString"]
+    },
+    "default": "MultiLineString"
+  }, {
+    "name": "coordinates",
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": "float"
+        }
+      }
+    }
+  }]
+}, {
+  "name": "Polygon",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "Describes a Polygon geometry",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["Polygon"]
+    },
+    "default": "Polygon"
+  }, {
+    "name": "coordinates",
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": "float"
+        }
+      }
+    }
+  }]
+}, {
+  "name": "MultiPolygon",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "Describes a MultiPolygon geometry",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["MultiPolygon"]
+    },
+    "default": "MultiPolygon"
+  }, {
+    "name": "coordinates",
+    "type": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": "float"
+          }
+        }
+      }
+    }
+  }]
+}, {
+  "name": "Feature",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "A GeoJSON Feature object",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["Feature"]
+    },
+    "default": "Feature"
+  }, {
+    "name": "bbox",
+    "type": ["null", {
+      "type": "array",
+      "items": "float"
+    }],
+    "default": null
+  }, {
+    "name": "geometry",
+    "type": [
+      "eu.driver.model.geojson.Point",
+      "eu.driver.model.geojson.LineString",
+      "eu.driver.model.geojson.MultiLineString",
+      "eu.driver.model.geojson.Polygon",
+      "eu.driver.model.geojson.MultiPolygon"
+    ]
+  }, {
+    "name": "properties",
+    "namespace": "eu.driver.model.geojson",
+    "doc": "Any type, without infinite nesting, should be replaced during actual usage with a record with named properties.",
+    "type": {
+      "name": "Json",
+      "type": "map",
+      "values": ["null", "boolean", "string", "int", "long", "float", "double", {
+        "type": "array",
+        "items": ["null", "boolean", "string", "int", "long", "float", "double"]
+      }, {
+        "type": "map",
+        "values": ["null", "boolean", "string", "int", "long", "float", "double"]
+      }]
+    }
+  }]
+}, {
+  "name": "FeatureCollection",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "A GeoJSON FeatureCollection object",
+  "type": "record",
+  "fields": [{
+    "name": "type",
+    "type": {
+      "type": "enum",
+      "symbols": ["FeatureCollection"]
+    },
+    "default": "FeatureCollection"
+  }, {
+    "name": "bbox",
+    "type": ["null", "eu.driver.model.geojson.BoundingBox"],
+    "default": null
+  }, {
+    "name": "features",
+    "type": ["null", {
+      "type": "array",
+      "items": "eu.driver.model.geojson.Feature"
+    }]
+  }]
+}, {
+  "name": "GeoJSON",
+  "namespace": "eu.driver.model.geojson",
+  "doc": "GeoJSON is a geospatial data interchange format based on JavaScript Object Notation (JSON).  It defines several types of JSON objects and the manner in which they are combined to represent data about geographic features, their properties, and their spatial extents. GeoJSON uses a geographic coordinate reference system, World Geodetic System 1984, and units of decimal degrees. https://tools.ietf.org/html/rfc7946",
+  "type": "eu.driver.model.geojson.FeatureCollection"
+}]
