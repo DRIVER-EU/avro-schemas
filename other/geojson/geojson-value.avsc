@@ -1,11 +1,12 @@
 {
-  "name": "eu.driver.model.geojson.FeatureCollection",
+  "name": "FeatureCollection",
   "namespace": "eu.driver.model.geojson",
   "doc": "A GeoJSON FeatureCollection object. As the properties are generic, it should be replaced by a record with named properties.",
   "type": "record",
   "fields": [{
       "name": "type",
       "type": {
+		"name": "FeatureCollectionType",
         "type": "enum",
         "symbols": [
           "FeatureCollection"
@@ -22,7 +23,7 @@
           "namespace": "eu.driver.model.geojson",
           "doc": "The value of the bbox member MUST be an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. The 'bbox' values define shapes with edges that follow lines of constant longitude, latitude, and elevation.",
           "type": "array",
-          "items": "float"
+          "items": "double"
         }
       ],
       "default": null
@@ -42,6 +43,7 @@
                 "name": "type",
                 "type": {
                   "type": "enum",
+				  "name": "FeatureType",
                   "symbols": [
                     "Feature"
                   ]
@@ -54,7 +56,7 @@
                   "null",
                   {
                     "type": "array",
-                    "items": "float"
+                    "items": "double"
                   }
                 ],
                 "default": null
@@ -68,8 +70,10 @@
                     "type": "record",
                     "fields": [{
                         "name": "type",
+						
                         "type": {
                           "type": "enum",
+						  "name": "PointType",
                           "symbols": [
                             "Point"
                           ]
@@ -80,7 +84,7 @@
                         "name": "coordinates",
                         "type": {
                           "type": "array",
-                          "items": "float"
+                          "items": "double"
                         }
                       }
                     ]
@@ -94,6 +98,7 @@
                         "name": "type",
                         "type": {
                           "type": "enum",
+						  "name": "LineStringType",
                           "symbols": [
                             "LineString"
                           ]
@@ -104,9 +109,10 @@
                         "name": "coordinates",
                         "type": {
                           "type": "array",
+						  "name": "CoordinatesType",
                           "items": {
                             "type": "array",
-                            "items": "float"
+                            "items": "double"
                           }
                         }
                       }
@@ -121,6 +127,7 @@
                         "name": "type",
                         "type": {
                           "type": "enum",
+						  "name": "MultiLineStringType",
                           "symbols": [
                             "MultiLineString"
                           ]
@@ -131,11 +138,12 @@
                         "name": "coordinates",
                         "type": {
                           "type": "array",
+						  "name": "CoordinatesType",
                           "items": {
                             "type": "array",
                             "items": {
                               "type": "array",
-                              "items": "float"
+                              "items": "double"
                             }
                           }
                         }
@@ -151,6 +159,7 @@
                         "name": "type",
                         "type": {
                           "type": "enum",
+						  "name": "PolygonType",
                           "symbols": [
                             "Polygon"
                           ]
@@ -161,11 +170,12 @@
                         "name": "coordinates",
                         "type": {
                           "type": "array",
+						  "name": "CoordinatesType",
                           "items": {
                             "type": "array",
                             "items": {
                               "type": "array",
-                              "items": "float"
+                              "items": "double"
                             }
                           }
                         }
@@ -181,6 +191,7 @@
                         "name": "type",
                         "type": {
                           "type": "enum",
+						  "name": "MultiPolygonType",
                           "symbols": [
                             "MultiPolygon"
                           ]
@@ -197,7 +208,7 @@
                               "type": "array",
                               "items": {
                                 "type": "array",
-                                "items": "float"
+                                "items": "double"
                               }
                             }
                           }
