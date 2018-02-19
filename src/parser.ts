@@ -11,7 +11,7 @@ export class Parser {
       const schema = avro.Type.forSchema(this.loadFile(option.schema));
       this.validateJSON(json, schema);
     } else {
-      const schemaFile = option.file.replace(path.extname(option.file), '.avsc');
+      const schemaFile = option.output || option.file.replace(path.extname(option.file), '.avsc');
       this.inferSchema(json, schemaFile);
     }
   }

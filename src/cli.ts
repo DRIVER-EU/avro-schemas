@@ -5,6 +5,7 @@ import { Parser } from './parser';
 
 export interface ICommandOptions {
   schema: string;
+  output: string;
   file: string;
   help: boolean;
 }
@@ -22,13 +23,19 @@ export class CommandLineInterface {
     type: String,
     defaultOption: true,
     typeLabel: '[underline]{String}',
-    description: 'JSON file that needs to be validated against a schema, or for which we want to infer a schema.\'s'
+    description: 'JSON or XML file that must be validated against a schema, or for which we want to infer a schema.'
   }, {
     name: 'schema',
     alias: 's',
     type: String,
     typeLabel: '[underline]{String}',
-    description: 'The schema file which is used to validate the JSON file.\'s.'
+    description: 'The schema file which is used to validate the JSON or XML file.'
+  }, {
+    name: 'output',
+    alias: 'o',
+    type: String,
+    typeLabel: '[underline]{String}',
+    description: 'Override the default schema file name.'
   }];
 
   static sections = [
@@ -49,10 +56,13 @@ export class CommandLineInterface {
     {
       header: 'Examples',
       content: [{
-        desc: '01. Infer a cap.avsc from the cap.json file.',
+        desc: '01. Infer a cap.avsc schema from the cap.json file.',
         example: '$ avro-schema-validator cap.json'
       }, {
-        desc: '02. Validate a cap.json against the cap.avsc schema.',
+        desc: '02. Infer a schema, and specify the output file.',
+        example: '$ avro-schema-validator cap.json -o mySchema.avsc'
+      }, {
+        desc: '03. Validate a cap.json against the cap.avsc schema.',
         example: '$ avro-schema-validator cap.json -s cap.avsc'
       }]
     }
