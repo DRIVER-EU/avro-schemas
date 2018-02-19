@@ -38,8 +38,8 @@ export class CommandLineInterface {
 
     ${npmPackage.description}
 
-    Use the avro-schemas tool to infer an AVRO schema based on JSON or XML input, or
-    validate a JSON message against a schema.
+    Use the avro-schemas tool to infer an AVRO schema based on JSON or XML input,
+    or validate a JSON message against a schema.
     `
     },
     {
