@@ -42,3 +42,32 @@ The AVRO schema is specified [here](https://avro.apache.org/docs/current/spec.ht
 - The CAP schema uses `minOccors = "0"` (optional element). I've converted this to an AVRO UnionType, for example when the type is `xs:string`, it becomes `type: ["null", "string"], default: null`.
 - The CAP schema uses `maxOccors = "unbounded"` (array). I've converted this to an AVRO UnionType, for example when the type is `xs:string`, it becomes `type: ["null", "string", { type: "array", items: "string" }], default: null`. So the element is optional (type is null and default is null), a simple string, or a string array.
 - The CAP schema contains many types: each type has been converted to an AVRO `enum` with symbols (e.g. for `simpleType`)), or `record` (e.g. for `complexType`). As a consequence, the AVRO schema may contain many types, in which case we need to specify the actual (top) type that we will use for validating/encoding/decoding messages.
+
+## Additional tooling
+This repository also contains a simple javascript tool, which can be used to validate a schema against a JSON or XML message, and which can infer a schema too.
+
+```
+avro-schema-validator
+
+  MIT license.
+
+  A tool to infer AVRO schema's from JSON messages, and to validate it.
+
+  Use the avro-schemas tool to infer an AVRO schema based on JSON or XML input,
+  or
+  validate a JSON message against a schema.
+
+Options
+
+  -h, --help Boolean    Show help text
+  -f, --file String     JSON file that needs to be validated against a schema, or for which
+                        we want to infer a schema.'s
+  -s, --schema String   The schema file which is used to validate the JSON file.'s.
+
+Examples
+
+  01. Infer a cap.avsc from the cap.json       $ avro-schema-validator cap.json
+  file.
+  02. Validate a cap.json against the          $ avro-schema-validator cap.json -s cap.avsc
+  cap.avsc schema.
+```

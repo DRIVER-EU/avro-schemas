@@ -1,0 +1,13 @@
+.vscode
+core
+data
+edxl-de
+node-modules
+other
+src
+.editorconfig
+.gitignore
+.npmignore
+tsconfig.json
+tslint.json
+yarn.lock

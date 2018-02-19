@@ -1,10 +1,14 @@
 {
-  "name": "avro-schemas",
+  "name": "avro-schema-validator",
   "version": "0.0.0",
-  "description": "A repository to maintain AVRO schema's for use in the test-bed.",
-  "main": "index.js",
+  "description": "A tool to infer AVRO schema's from JSON messages, and to validate it.",
+  "main": "./dist/lib/cli.js",
+  "typings": "./dist/lib/cli.d.ts",
+  "bin": "./bin/run.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -w",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm version minor && npm publish && git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,16 @@
   "bugs": {
     "url": "https://github.com/DRIVER-EU/avro-schemas/issues"
   },
-  "homepage": "https://github.com/DRIVER-EU/avro-schemas#readme"
+  "homepage": "https://github.com/DRIVER-EU/avro-schemas#readme",
+  "dependencies": {
+    "avsc": "^5.2.1",
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^4.1.0",
+    "xml2json": "^0.11.0"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^4.0.2",
+    "@types/node": "^9.4.6",
+    "@types/xml2json": "^0.10.0"
+  }
 }
