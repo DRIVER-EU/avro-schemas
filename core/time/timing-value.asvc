@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "Timing",
+  "namespace": "eu.driver.model.core",
+  "doc": "Timing message to distribute the trial time.",
+  "fields": [
+  	{
+	    "doc": "sequence ID",
+	    "name": "id",
+	    "type": "long"
+	  }, {
+	    "name": "realTime",
+	    "type": "long",
+		"logicalType": "timestamp-millis",
+		"doc": "The date and time the distribution message was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+	  }, {
+	    "name": "trialTime",
+	    "type": "long",
+		"logicalType": "timestamp-millis",
+		"doc": "The date and time the distribution message was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+	  }, {
+	    "name": "timeElapsed",
+	    "type": "long",
+		"logicalType": "timestamp-millis",
+		"doc": "The date and time the distribution message was sent as the number of milliseconds from the start of the trial."
+	  }
+	]
+}
