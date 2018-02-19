@@ -60,3 +60,4 @@ typings/
 /bin/
 /*.classpath
 /*.project
+dist
