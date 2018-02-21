@@ -1,0 +1,23 @@
+{
+  "name": "Base",
+  "namespace": "eu.driver.model.sim",
+  "doc": "ABSTRACT, do not use this record in general, the fields are incorporated inside all sub classes!! *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+    {
+      "name": "guid",
+      "doc": "globally unique identifier for this entity/connection",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "doc": "name of this entity/connection",
+      "type": "string"
+    },
+    {
+      "name": "owner",
+      "doc": "identifier of the simulator currently responsible for this entity/connection",
+      "type": "string"
+    }
+  ]
+}
