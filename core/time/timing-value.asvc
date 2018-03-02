@@ -23,6 +23,10 @@
 	    "type": "long",
 		  "logicalType": "duration",
 		  "doc": "The number of milliseconds from the start of the trial."
+	  }, {
+	    "name": "speedFactor",
+	    "type": "float",
+		  "doc": "Positive number, indicating how fast the simulation / trial time moves with respect to the actual time. A value of 0 means a pause, 1 is as fast as real-time."
 	  }
 	]
 }
