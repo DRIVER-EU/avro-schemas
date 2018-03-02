@@ -23,13 +23,7 @@
         "name": "Status",
         "namespace": "eu.driver.model.cap",
         "type": "enum",
-        "symbols": [
-          "Actual",
-          "Exercise",
-          "System",
-          "Test",
-          "Draft"
-        ]
+        "symbols": [ "Actual", "Exercise", "System", "Test", "Draft" ]
       }
     },
     {
@@ -38,18 +32,12 @@
         "name": "MsgType",
         "namespace": "eu.driver.model.cap",
         "type": "enum",
-        "symbols": [
-          "Alert",
-          "Update",
-          "Cancel",
-          "Ack",
-          "Error"
-        ]
+        "symbols": [ "Alert", "Update", "Cancel", "Ack", "Error" ]
       }
     },
     {
       "name": "source",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
@@ -58,21 +46,17 @@
         "name": "Scope",
         "namespace": "eu.driver.model.cap",
         "type": "enum",
-        "symbols": [
-          "Public",
-          "Restricted",
-          "Private"
-        ]
+        "symbols": [ "Public", "Restricted", "Private" ]
       }
     },
     {
       "name": "restriction",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
       "name": "addresses",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
@@ -89,17 +73,17 @@
     },
     {
       "name": "note",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
       "name": "references",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
       "name": "incidents",
-      "type": ["null", "string"],
+      "type": [ "null", "string" ],
       "default": null
     },
     {
@@ -114,10 +98,7 @@
             {
               "name": "language",
               "default": "en-US",
-              "type": [
-                "string",
-                "null"
-              ]
+              "type": [ "string", "null" ]
             },
             {
               "name": "category",
@@ -184,13 +165,7 @@
                 "name": "Urgency",
                 "namespace": "eu.driver.model.cap",
                 "type": "enum",
-                "symbols": [
-                  "Immediate",
-                  "Expected",
-                  "Future",
-                  "Past",
-                  "Unknown"
-                ]
+                "symbols": [ "Immediate", "Expected", "Future", "Past", "Unknown" ]
               }
             },
             {
@@ -199,13 +174,7 @@
                 "name": "Severity",
                 "namespace": "eu.driver.model.cap",
                 "type": "enum",
-                "symbols": [
-                  "Extreme",
-                  "Severe",
-                  "Moderate",
-                  "Minor",
-                  "Unknown"
-                ]
+                "symbols": [ "Extreme", "Severe", "Moderate", "Minor", "Unknown" ]
               }
             },
             {
@@ -214,18 +183,12 @@
                 "name": "Certainty",
                 "namespace": "eu.driver.model.cap",
                 "type": "enum",
-                "symbols": [
-                  "Observed",
-                  "Likely",
-                  "Possible",
-                  "Unlikely",
-                  "Unknown"
-                ]
+                "symbols": [ "Observed", "Likely", "Possible", "Unlikely", "Unknown" ]
               }
             },
             {
               "name": "audience",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
@@ -257,50 +220,50 @@
             {
               "name": "effective",
               "doc": "TODO: datetime",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "onset",
               "doc": "TODO: datetime",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "expires",
               "doc": "TODO: datetime",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "senderName",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "headline",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "description",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "instruction",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "web",
               "doc": "TODO: anyURI",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
               "name": "contact",
-              "type": ["null", "string"],
+              "type": [ "null", "string" ],
               "default": null
             },
             {
@@ -330,26 +293,23 @@
                     },
                     {
                       "name": "size",
-                      "type": [
-                        "null",
-                        "int"
-                      ],
+                      "type": [ "null", "int" ],
                       "default": null
                     },
                     {
                       "name": "uri",
                       "doc": "TODO, anyURI",
-                      "type": ["null", "string"],
+                      "type": [ "null", "string" ],
                       "default": null
                     },
                     {
                       "name": "deferUri",
-                      "type": ["null", "string"],
+                      "type": [ "null", "string" ],
                       "default": null
                     },
                     {
                       "name": "digest",
-                      "type": ["null", "string"],
+                      "type": [ "null", "string" ],
                       "default": null
                     }
                   ]
@@ -412,18 +372,12 @@
                     },
                     {
                       "name": "altitude",
-                      "type": [
-                        "null",
-                        "double"
-                      ],
+                      "type": [ "null", "double" ],
                       "default": null
                     },
                     {
                       "name": "ceiling",
-                      "type": [
-                        "null",
-                        "double"
-                      ],
+                      "type": [ "null", "double" ],
                       "default": null
                     }
                   ]
