@@ -21,7 +21,7 @@
 	  }, {
 	    "name": "timeElapsed",
 	    "type": "long",
-		  "logicalType": "timestamp-millis",
+		  "logicalType": "duration",
 		  "doc": "The number of milliseconds from the start of the trial."
 	  }
 	]
