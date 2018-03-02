@@ -5,9 +5,9 @@
   "doc": "Timing message to distribute the trial time.",
   "fields": [
     {
-      "doc": "sequence ID",
       "name": "id",
-      "type": "long"
+      "type": "long",
+      "doc": "sequence ID"
     },
     {
       "name": "updatedAt",
@@ -28,7 +28,7 @@
       "doc": "The number of milliseconds from the start of the trial."
     },
     {
-      "name": "trialTimeSpeed ",
+      "name": "trialTimeSpeed",
       "type": "float",
       "doc": "Positive number, indicating how fast the simulation / trial time moves with respect to the actual time. A value of 0 means a pause, 1 is as fast as real-time."
     }
