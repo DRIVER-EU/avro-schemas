@@ -5,11 +5,6 @@
   "doc": "Timing message to distribute the trial time.",
   "fields": [
     {
-      "name": "id",
-      "type": "long",
-      "doc": "sequence ID"
-    },
-    {
       "name": "updatedAt",
       "type": "long",
       "logicalType": "timestamp-millis",
