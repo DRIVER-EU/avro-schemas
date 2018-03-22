@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TopicInvite",
-  "namespace": "eu.driver.model.system",
+  "namespace": "eu.driver.model.core",
   "doc": "The message send by the admin tool to tell the adaptor to which topic he is invited to join.",
   "fields": [
     {

@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "Log",
-  "namespace": "eu.driver.model.system",
+  "namespace": "eu.driver.model.core",
   "doc": "Log message, especially useful to inform others of errors that are occurring.",
   "fields": [
     {
@@ -19,7 +19,7 @@
       "name": "level",
       "type": {
         "name": "Level",
-        "namespace": "eu.driver.model.system",
+        "namespace": "eu.driver.model.core",
         "type": "enum",
         "symbols": [ "DEBUG", "INFO", "WARN", "ERROR", "CRITICAL", "SILLY" ]
       },

@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "TopicCreate",
-  "namespace": "eu.driver.model.system",
+  "namespace": "eu.driver.model.core",
   "doc": "The message send to the admin tool to request a topic to be created and grant clients access as publisher/subscriber to them.",
   "fields": [
     {
@@ -19,7 +19,7 @@
       "type": [
         {
           "name": "subscribeAllowed",
-          "namespace": "eu.driver.model.cap",
+          "namespace": "eu.driver.model.core",
           "type": "record",
           "fields": [
             {
@@ -37,7 +37,7 @@
       "type": [
         {
           "name": "publishedAllowed",
-          "namespace": "eu.driver.model.cap",
+          "namespace": "eu.driver.model.core",
           "type": "record",
           "fields": [
             {
