@@ -1,0 +1,31 @@
+{
+  "name": "LargeDataUpdate",
+  "namespace": "eu.driver.model.core",
+  "doc": "Message for indicating large data files updated and uploaded to a central server",
+  "type": "record",
+  "fields": [
+    {
+      "name": "url",
+	  "doc": "Link of where to download the data file from",
+      "type": "string"
+    },
+    {
+      "name": "dataType",
+	  "doc": "The type of data that is updated",
+      "type": 
+	  {
+	    "name": "LargeDataTypes",
+		"namespace": "eu.driver.model.core",
+		"doc": "All possible data types support by the DRIVER+ Test-bed
+	    "type": "enum",
+        "symbols": [
+		  "text/plain",
+		  "image/bmp",
+		  "image/jpeg",
+		  "image/geotiff",
+		  "other"
+		]
+	  }
+    }
+  ]
+}
