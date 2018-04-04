@@ -6,26 +6,53 @@
   "fields": [
     {
       "name": "url",
-	  "doc": "Link of where to download the data file from",
+      "doc": "Link of where to download the data file from",
       "type": "string"
     },
     {
+      "name": "title",
+      "doc": "Optional title of the data file, e.g. to serve it via WMS or otherwise",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "description",
+      "doc": "Optional description of the file",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
       "name": "dataType",
-	  "doc": "The type of data that is updated",
-      "type": 
-	  {
-	    "name": "LargeDataTypes",
-		"namespace": "eu.driver.model.core",
-		"doc": "All possible data types support by the DRIVER+ Test-bed
-	    "type": "enum",
+      "doc": "The type of data that is updated",
+      "type": {
+        "name": "LargeDataTypes",
+        "namespace": "eu.driver.model.core",
+        "doc": "Type of data that is sent",
+        "type": "enum",
         "symbols": [
-		  "text/plain",
-		  "image/bmp",
-		  "image/jpeg",
-		  "image/geotiff",
-		  "other"
-		]
-	  }
+          "application/msword",
+          "application/ogg",
+          "application/pdf",
+          "application/vnd.ms-powerpoint",
+          "application/x-compressed-zip",
+          "application/zip",
+          "audio/mpeg",
+          "audio/vorbis",
+          "image/bmp",
+          "image/gif",
+          "image/geotiff",
+          "image/jpeg",
+          "image/png",
+          "json/json",
+          "json/geojson",
+          "text/plain",
+          "video/mpeg",
+          "video/msvideo",
+          "video/avi",
+          "video/x-msvideo",
+          "other"
+        ]
+      }
     }
   ]
 }
