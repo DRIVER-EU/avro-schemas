@@ -22,6 +22,18 @@
       "default": null
     },
     {
+      "name": "username",
+      "doc": "Optional username when security is enabled",
+      "type": [ "null", "string" ],
+      "default": null
+    },
+    {
+      "name": "password",
+      "doc": "Optional password when security is enabled",
+      "type": [ "null", "string" ],
+      "default": null
+    },
+    {
       "name": "updateType",
       "doc": "Create, update, delete",
       "type": {
