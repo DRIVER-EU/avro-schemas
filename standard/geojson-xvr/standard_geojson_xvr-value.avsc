@@ -240,19 +240,23 @@
 						},
 						{
 							"name": "type",
-							"type": "string"
+							"type": ["null", "string"],
+							"default": null
 						},
 						{
 							"name": "subType",
-							"type": "string"
+							"type": ["null", "string"],
+							"default": null
 						},
 						{
 							"name": "label",
-							"type": "string"
+							"type": ["null", "string"],
+							"default": null
 						},
 						{
 							"name": "subLabel",
-							"type": "string"
+							"type": ["null", "string"],
+							"default": null
 						}
 					]
 				}
