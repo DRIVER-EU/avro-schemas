@@ -22,7 +22,7 @@
     {
       "name": "heartbeatInterval",
       "doc": "Time in msec how often you send out a heartbeat. Default 5000",
-      "type": [ "null", "int" ],
+      "type": "int",
       "default": 5000
     },
     {
