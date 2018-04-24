@@ -1,5 +1,5 @@
 {
-  "name": "Location",
+  "name": "Station",
   "namespace": "eu.driver.model.sim.entity",
   "doc": "Common Simulation Space Location, representing a visual location (building or area) inside the simulation world. *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
@@ -21,7 +21,7 @@
     },
     {
       "name": "location",
-      "doc": "geo-referenced location of this location",
+      "doc": "geo-referenced location of this station",
       "type": {
         "name": "Location",
         "namespace": "eu.driver.model.sim.geo",
@@ -48,7 +48,7 @@
     },
 	{
       "name": "address",
-      "doc": "address information regarding the location",
+      "doc": "address information regarding the station",
       "type": {
         "name": "Address",
         "namespace": "eu.driver.model.sim.geo",
@@ -85,17 +85,17 @@
     },
     {
       "name": "visibleForParticipant",
-      "doc": "indication whether or not this location is visible for all participants",
+      "doc": "indication whether or not this station is visible for all participants",
       "type": "boolean"
     },
     {
       "name": "movable",
-      "doc": "indication whether or not this location is movable in the simulation world",
+      "doc": "indication whether or not this station is movable in the simulation world",
       "type": "boolean"
     },
     {
       "name": "scenarioLabel",
-      "doc": "scenario category of this location",
+      "doc": "scenario category of this station",
       "type": [
         "null",
         {
@@ -108,7 +108,7 @@
     },
     {
       "name": "userTags",
-      "doc": "list of all tags the user provided associated with this location",
+      "doc": "list of all tags the user provided associated with this station",
       "type": [
         "null",
         {
@@ -120,7 +120,7 @@
     },
     {
       "name": "items",
-      "doc": "list of physical item references (represented by their GUIDs) that are currently at the location",
+      "doc": "list of physical item references (represented by their GUIDs) that are currently at the station",
       "type": [
         "null",
         {
