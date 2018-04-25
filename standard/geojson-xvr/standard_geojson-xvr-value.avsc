@@ -249,6 +249,18 @@
 							"default": null
 						},
 						{
+							"name": "name",
+							"type": ["null", "string"],
+							"doc": "name of this entity",
+							"default": null
+						},
+						{
+							"name": "owner",
+							"type": ["null", "string"],
+							"doc": "identifier of the simulator currently responsible for this entity",
+							"default": null
+						},
+						{
 							"name": "label",
 							"type": ["null", "string"],
 							"default": null
