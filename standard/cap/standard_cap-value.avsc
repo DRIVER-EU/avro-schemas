@@ -303,6 +303,12 @@
                       "default": null
                     },
                     {
+                      "name": "mimeType",
+                      "doc": "The mimetype of the resource!",
+                      "type": [ "null", "string" ],
+                      "default": null
+                    },
+                    {
                       "name": "deferUri",
                       "type": [ "null", "string" ],
                       "default": null
