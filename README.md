@@ -44,7 +44,15 @@ The AVRO schema is specified [here](https://avro.apache.org/docs/current/spec.ht
 - The CAP schema contains many types: each type has been converted to an AVRO `enum` with symbols (e.g. for `simpleType`)), or `record` (e.g. for `complexType`). As a consequence, the AVRO schema may contain many types, in which case we need to specify the actual (top) type that we will use for validating/encoding/decoding messages.
 
 ## Additional tooling
-This repository also contains a simple javascript tool, which can be used to validate a schema against a JSON or XML message, and which can infer a schema too.
+This repository also contains a simple javascript tool, which can be used to validate a schema against a JSON or XML message, and which can infer a schema too. You can install it using:
+```console
+npm i -g avro-schema-validator
+```
+In case this does not work due to permission issues, you can also run it from a Linux VM or Docker (`docker pull node`)
+```bash
+# After installing node.js using the package manager
+$ sudo npm i -g avro-schema-validator --unsafe-perm=true --allow-root
+```
 
 ```
 avro-schema-validator
