@@ -24,6 +24,7 @@
       "doc": "type of CM medium this post was placed on/in",
 	  "type": {
           "name": "MediumTypes",
+		  "namespace": "eu.driver.model.sim.entity.post",
           "type": "enum",
           "symbols": [ "CHAT", "INCIDENT_REPORT", "MAIL", "MICROBLOG", "NEWS", "SITUATION_REPORT", "SOCIAL_NETWORK", "VIDEO" ]
       }

@@ -41,7 +41,8 @@
           {
             "name": "altitude",
             "doc": "altitude in meters - 0 is surface of WGS84-based ellipsoid",
-            "type": "double"
+            "type": [ "null", "double" ],
+			"default": null
           }
         ]
       }

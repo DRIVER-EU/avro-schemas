@@ -21,7 +21,7 @@
     },
 	{
       "name": "state",
-      "doc": "the name of the state to change to",
+      "doc": "name of the state to change to",
       "type": {
           "name": "States",
           "type": "enum",
