@@ -20,19 +20,28 @@
       "type": "string"
     },
 	{
-      "name": "medium",
-      "doc": "a predefined set of media a post can be placed on/in",
+      "name": "mediumType",
+      "doc": "type of CM medium this post was placed on/in",
+	  "type": {
+          "name": "MediumTypes",
+          "type": "enum",
+          "symbols": [ "CHAT", "INCIDENT_REPORT", "MAIL", "MICROBLOG", "NEWS", "SITUATION_REPORT", "SOCIAL_NETWORK", "VIDEO" ]
+      }
+    },
+	{
+      "name": "mediumName",
+      "doc": "name of the medium this post was placed on/in",
       "type": "string"
     },
 	{
       "name": "header",
-      "doc": "the title of this post",
+      "doc": "title of this post",
       "type": ["null", "string"],
 	  "default": null
     },
 	{
       "name": "intro",
-      "doc": "the introduction of this post",
+      "doc": "introduction of this post",
       "type": ["null", "string"],
 	  "default": null
     },
@@ -43,7 +52,7 @@
     },
 	{
       "name": "files",
-      "doc": "the links to files attached to this post",
+      "doc": "links to files attached to this post",
       "type": [
         "null",
         {
@@ -60,12 +69,12 @@
     },
 	{
       "name": "senderName",
-      "doc": "the name of the sender sending this post",
+      "doc": "name of the sender sending this post",
       "type": "string"
     },
 	{
       "name": "senderRole",
-      "doc": "the reference to the XVR role sending this post",
+      "doc": "reference to the XVR role sending this post",
       "type": ["null", "string"],
 	  "default": null
     },
@@ -110,8 +119,9 @@
 			},
 			{
 			  "name": "altitude",
-			  "doc": "altitude in meters - 0 is surface of WGS84-based ellipsoid",
-			  "type": "double"
+              "doc": "altitude in meters - 0 is surface of WGS84-based ellipsoid",
+			  "type": [ "null", "double" ],
+              "default": null
 			}
 		  ]
 		}
