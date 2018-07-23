@@ -10,7 +10,7 @@
         "name": "Command",
         "namespace": "eu.driver.model.core",
         "type": "enum",
-        "symbols": [ "Init", "Start", "Pause", "Update", "Stop", "Reset" ]
+        "symbols": ["Init", "Start", "Pause", "Update", "Stop", "Reset"]
       },
       "doc": "The type of command to switch the state of the time-service."
     },

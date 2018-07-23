@@ -13,7 +13,8 @@
       "name": "dateTimeSent",
       "type": "long",
       "logicalType": "timestamp-millis",
-      "doc": "The date and time the distribution message was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+      "doc":
+        "The date and time the distribution message was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
     },
     {
       "name": "level",
@@ -21,7 +22,7 @@
         "name": "Level",
         "namespace": "eu.driver.model.core",
         "type": "enum",
-        "symbols": [ "DEBUG", "INFO", "WARN", "ERROR", "CRITICAL", "SILLY" ]
+        "symbols": ["DEBUG", "INFO", "WARN", "ERROR", "CRITICAL", "SILLY"]
       },
       "doc": "The action-ability of the message."
     },

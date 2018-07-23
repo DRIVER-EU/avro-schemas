@@ -42,12 +42,12 @@
               },
               {
                 "name": "offset",
-                "type": [ "null", "int" ],
+                "type": ["null", "int"],
                 "default": null
               },
               {
                 "name": "partition",
-                "type": [ "null", "int" ],
+                "type": ["null", "int"],
                 "default": null
               }
             ]
@@ -80,25 +80,25 @@
             {
               "name": "logToFile",
               "doc": "If set [0..5], log to file as specified in logFile",
-              "type": [ "null", "int" ],
+              "type": ["null", "int"],
               "default": null
             },
             {
               "name": "logFile",
               "doc": "Name of the log file",
-              "type": [ "null", "string" ],
+              "type": ["null", "string"],
               "default": null
             },
             {
               "name": "logToConsole",
               "doc": "If set [0..5], log to console. Number indicates logging level",
-              "type": [ "null", "int" ],
+              "type": ["null", "int"],
               "default": null
             },
             {
               "name": "logToKafka",
               "doc": "If set [0..5], log to Kafka",
-              "type": [ "null", "int" ],
+              "type": ["null", "int"],
               "default": null
             }
           ]
