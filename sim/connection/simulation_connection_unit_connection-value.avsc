@@ -1,17 +1,12 @@
 {
   "name": "UnitConnection",
   "namespace": "eu.driver.model.sim.connection",
-  "doc": "XVR Simulation Unit Connection - organizational structure between units, having one main unit and any number of sub units. This allows more complex structures of units. *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "XVR Simulation Unit Connection - one link of the organizational structure between units, describing the connection between one main unit and one sub unit. This allows more complex structures of units. *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "guid",
       "doc": "Globally unique identifier for this entity",
-      "type": "string"
-    },
-    {
-      "name": "name",
-      "doc": "Name of this entity",
       "type": "string"
     },
     {
@@ -21,16 +16,13 @@
     },
     {
       "name": "mainUnit",
-      "doc": "GUID of the unit representing the main unit",
+      "doc": "GUID of the unit representing the main (parent) unit",
       "type": "string"
     },
     {
-      "name": "subUnits",
-      "doc": "GUIDs of the units representing the rest",
-      "type": {
-        "type": "array",
-        "items": "string"
+      "name": "subUnit",
+      "doc": "GUID of the unit representing the sub (child) unit",
+      "type": "string"
       }
-    }
   ]
 }
