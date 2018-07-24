@@ -2,11 +2,12 @@
   "type": "record",
   "name": "TopicCreate",
   "namespace": "eu.driver.model.core",
-  "doc": "The message send to the admin tool to request a topic to be created and grant clients access as publisher/subscriber to them.",
+  "doc":
+    "The message send to the admin tool to request a topic to be created and grant clients access as publisher/subscriber to them.",
   "fields": [
     {
       "name": "id",
-      "doc": "sender Client id",
+      "doc": "Sender Client id",
       "type": "string"
     },
     {
@@ -24,7 +25,7 @@
           "fields": [
             {
               "name": "id",
-              "doc": "sender Client id",
+              "doc": "Sender Client id",
               "type": "string"
             }
           ]
@@ -42,7 +43,7 @@
           "fields": [
             {
               "name": "id",
-              "doc": "sender Client id",
+              "doc": "Sender Client id",
               "type": "string"
             }
           ]

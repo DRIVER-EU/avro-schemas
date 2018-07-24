@@ -12,13 +12,13 @@
     {
       "name": "title",
       "doc": "Optional title of the data file, e.g. to serve it via WMS or otherwise",
-      "type": [ "null", "string" ],
+      "type": ["null", "string"],
       "default": null
     },
     {
       "name": "description",
       "doc": "Optional description of the file",
-      "type": [ "null", "string" ],
+      "type": ["null", "string"],
       "default": null
     },
     {

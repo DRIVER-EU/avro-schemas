@@ -6,17 +6,17 @@
   "fields": [
     {
       "name": "guid",
-      "doc": "globally unique identifier for this entity",
+      "doc": "Globally unique identifier for this entity",
       "type": "string"
     },
     {
       "name": "name",
-      "doc": "name of this entity",
+      "doc": "Name of this entity",
       "type": "string"
     },
     {
       "name": "owner",
-      "doc": "identifier of the simulator currently responsible for this entity",
+      "doc": "Identifier of the simulator currently responsible for this entity",
       "type": "string"
     },
     {
