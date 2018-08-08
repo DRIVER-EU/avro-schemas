@@ -1,7 +1,7 @@
 {
   "name": "FeatureCollection",
-  "namespace": "eu.driver.model.geojson",
-  "doc": "A GeoJSON FeatureCollection object. As the properties are generic, it should be replaced by a record with named properties.",
+  "namespace": "eu.driver.model.geojson.sim",
+  "doc": "A GeoJSON FeatureCollection object. The properties are made specific to be filled in with information from Simulated Entity data.",
   "type": "record",
   "fields": [{
       "name": "type",
@@ -212,31 +212,46 @@
               },
               {
                 "name": "properties",
-                "doc": "Any type, without infinite nesting, should be replaced during actual usage with a record with named properties.",
+                "doc": "Properties that provide additional specification of the Simulated entity in addition to its geographic information.",
 				"type": {
-					"name": "XVRRequestUnitTransportProperties",
-					"doc": "Specfic properties for the request to transport a unit inside the Common Simulation Space",
+					"name": "SimulatedEntityProperties",
+					"doc": "Specfic properties for an Simulated entity",
 					"type": "record",
 					"fields": [
 						{
 							"name": "guid",
 							"type": "string",
-							"doc": "Globally Unique IDentifier of this request"
+							"doc": "globally unique identifier for this entity"
 						},
 						{
-							"name": "owner",
+							"name": "name",
 							"type": "string",
-							"doc": "Name of the application sending out this request"
+							"doc": "name of this entity"
 						},
 						{
-							"name": "unit",
-							"type": "string",
-							"doc": "Globally Unique IDentifier of the unit that is requested to be transported"
+							"name": "speed",
+							"type": ["null", "double"],
+							"doc": "speed of the entity in m/s",
+							"default": null
 						},
 						{
-							"name": "destination",
+							"name": "type",
+							"type": {
+								"name": "TypeEnum",
+								"type": "enum",
+								"symbols": ["OBJECT", "PERSON", "CAR", "VAN", "TRUCK", "BOAT", "PLANE", "HELICOPTER", "MOTORCYCLE", "DRONE", "UNIT", "STATION", "UNITGROUP", "UNKNOWN"]
+							}
+						},
+						{
+							"name": "label",
 							"type": "string",
-							"doc": "Globally Unique IDentifier of the station that serves as destination of the transport"
+							"doc": "Label that describes the domain of the entity. E.g. Police, Medical, Fire or Military."
+						},
+						{
+							"name": "subEntities",
+							"type": ["null", {"type": "array", "items": "string"}],
+							"doc": "Entities contained by this entity. Only used for Units, Stations and Unit Groups. Array of strings consists of guids.",
+							"default": null
 						}
 					]
 				}
