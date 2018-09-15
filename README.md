@@ -61,7 +61,7 @@ $ sudo npm i -g avro-schema-validator --unsafe-perm=true --allow-root
 ```
 
 ```console
-avro-schema-validator, v0.1.5
+avro-schema-validator, v0.2.0
 
   MIT license.
 
