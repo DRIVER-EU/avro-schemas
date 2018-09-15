@@ -1,42 +1,63 @@
 import * as commandLineArgs from 'command-line-args';
 import { OptionDefinition } from 'command-line-args';
 import * as npmPackage from '../package.json';
+import * as getUsage from 'command-line-usage';
 import { Parser } from './parser';
 
+
 export interface ICommandOptions {
+  /** Relative path to the schema file */
   schema: string;
-  output: string;
+  /** Optional output file */
+  output?: string;
+  /** Relative path to the JSON input file */
   file: string;
-  help: boolean;
+  /** If set, always use wrapped union types. */
+  wrapped?: boolean;
+  /** If true, show the help text */
+  help?: boolean;
+}
+
+export interface IOptionDefinition extends OptionDefinition {
+  description: string;
 }
 
 export class CommandLineInterface {
-  static optionDefinitions: OptionDefinition[] = [{
-    name: 'help',
-    alias: 'h',
-    type: Boolean,
-    typeLabel: '[underline]{Boolean}',
-    description: 'Show help text'
-  }, {
-    name: 'file',
-    alias: 'f',
-    type: String,
-    defaultOption: true,
-    typeLabel: '[underline]{String}',
-    description: 'JSON or XML file that must be validated against a schema, or for which we want to infer a schema.'
-  }, {
-    name: 'schema',
-    alias: 's',
-    type: String,
-    typeLabel: '[underline]{String}',
-    description: 'The schema file which is used to validate the JSON or XML file.'
-  }, {
-    name: 'output',
-    alias: 'o',
-    type: String,
-    typeLabel: '[underline]{String}',
-    description: 'Override the default schema file name.'
-  }];
+  static optionDefinitions: IOptionDefinition[] = [
+    {
+      name: 'help',
+      alias: 'h',
+      type: Boolean,
+      description: 'Show help text'
+    },
+    {
+      name: 'file',
+      alias: 'f',
+      type: String,
+      defaultOption: true,
+      description:
+        'JSON or XML file that must be validated against a schema, or for which we want to infer a schema.'
+    },
+    {
+      name: 'schema',
+      alias: 's',
+      type: String,
+      description:
+        'The schema file which is used to validate the JSON or XML file.'
+    },
+    {
+      name: 'output',
+      alias: 'o',
+      type: String,
+      description: 'Override the default schema file name.'
+    },
+    {
+      name: 'wrapped',
+      alias: 'w',
+      type: Boolean,
+      description: 'If set, use wrapped union types.'
+    }
+  ];
 
   static sections = [
     {
@@ -45,8 +66,14 @@ export class CommandLineInterface {
 
     ${npmPackage.description}
 
-    Use the avro-schemas tool to infer an AVRO schema based on JSON or XML input,
+    Use avro-schema-validator to infer an AVRO schema based on JSON or XML input,
     or validate a JSON message against a schema.
+
+    In some cases, a valid JSON message may be considered invalid when wrapped
+    unions are used, e.g. when you have a property 'content', whose type is
+    ['int', 'float'], in JSON you would need to wrap its value in order to
+    distinguish between an integer and a float. In case normal parsing fails, 
+    it retries the validation using the -w option (wrapped).
     `
     },
     {
@@ -55,29 +82,37 @@ export class CommandLineInterface {
     },
     {
       header: 'Examples',
-      content: [{
-        desc: '01. Infer a cap.avsc schema from the cap.json file.',
-        example: '$ avro-schema-validator cap.json'
-      }, {
-        desc: '02. Infer a schema, and specify the output file.',
-        example: '$ avro-schema-validator cap.json -o mySchema.avsc'
-      }, {
-        desc: '03. Validate a cap.json against the cap.avsc schema.',
-        example: '$ avro-schema-validator cap.json -s cap.avsc'
-      }]
+      content: [
+        {
+          desc: '01. Infer a cap.avsc schema from the cap.json file.',
+          example: '$ avro-schema-validator cap.json'
+        },
+        {
+          desc: '02. Infer a schema, and specify the output file.',
+          example: '$ avro-schema-validator cap.json -o mySchema.avsc'
+        },
+        {
+          desc: '03. Validate a cap.json against the cap.avsc schema.',
+          example: '$ avro-schema-validator cap.json -s cap.avsc'
+        },
+        {
+          desc: '04. Validate a wrapped cap.json against the cap.avsc schema.',
+          example: '$ avro-schema-validator -w cap.json -s cap.avsc'
+        }
+      ]
     }
   ];
 }
 
-const options: ICommandOptions = commandLineArgs(
+const options = commandLineArgs(
   CommandLineInterface.optionDefinitions
-);
+) as ICommandOptions;
 
 if (options.help || !options.file) {
-  const getUsage = require('command-line-usage');
   const usage = getUsage(CommandLineInterface.sections);
   console.log(usage);
   process.exit(0);
 } else {
-  const schemaParser = new Parser(options);
+  const parser = new Parser(options);
+  parser.run();
 }

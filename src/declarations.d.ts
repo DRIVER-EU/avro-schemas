@@ -8,3 +8,9 @@ declare module '*.json' {
   };
   export = foo;
 }
+
+declare module '*.avsc' {
+  import { Schema } from 'avsc';
+  const foo: Schema;
+  export = foo;
+}

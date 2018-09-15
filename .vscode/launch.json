@@ -7,11 +7,44 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Mocha Tests",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "-r",
+        "ts-node/register",
+        "src/**/*.spec.ts",
+        "-u",
+        "tdd",
+        "--timeout",
+        "999999",
+        "--colors",
+        "${workspaceFolder}/src"
+      ],
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}\\src\\cli.ts",
       "cwd": "${workspaceFolder}",
       "args": [
-        "./data/geojson/linestring.json"
+        "./test/messages/standard_cap.json",
+        "-s",
+        "./standard/cap/standard_cap-value.avsc"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Show help",
+      "program": "${workspaceFolder}\\src\\cli.ts",
+      "cwd": "${workspaceFolder}",
+      "args": [
+        "-h"
       ],
       "outFiles": [
         "${workspaceFolder}/**/*.js"

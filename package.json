@@ -2,11 +2,12 @@
   "name": "avro-schema-validator",
   "version": "0.1.4",
   "description": "A tool to infer AVRO schema's from JSON messages, and to validate it.",
-  "main": "./dist/lib/cli.js",
-  "typings": "./dist/lib/cli.d.ts",
+  "main": "./dist/cli.js",
+  "typings": "./dist/cli.d.ts",
   "bin": "./bin/run.js",
   "scripts": {
-    "build": "tsc -w",
+    "start": "tsc -w",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm version minor && npm publish && git push --follow-tags"
   },
@@ -28,14 +29,20 @@
   },
   "homepage": "https://github.com/DRIVER-EU/avro-schemas#readme",
   "dependencies": {
-    "avsc": "^5.2.1",
+    "avsc": "^5.4.3",
     "command-line-args": "^5.0.2",
-    "command-line-usage": "^4.1.0",
-    "xml2json": "^0.11.0"
+    "command-line-usage": "^5.0.5",
+    "xml2json": "^0.11.2"
   },
   "devDependencies": {
-    "@types/command-line-args": "^4.0.2",
-    "@types/node": "^9.4.6",
-    "@types/xml2json": "^0.10.0"
+    "@types/chai": "^4.1.4",
+    "@types/command-line-args": "^5.0.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "@types/xml2json": "^0.10.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
   }
 }

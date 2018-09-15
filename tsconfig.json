@@ -4,7 +4,7 @@
     "rootDir": "src",
     "outDir": "dist",
     "lib": [
-      "es2015"
+      "es2015", "dom"
     ],
     "sourceMap": true,
     "target": "es5",
@@ -15,5 +15,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node"
-  }
+  },
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
 }
