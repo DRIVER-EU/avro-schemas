@@ -10,7 +10,7 @@ Since messages are so important, the test-bed requires you to define an AVRO-bas
 
 ## Registering a new message (schema)
 
-In order to register a new message, therefore, we need two schema's, one for the key and one for the value. By convention, these schema's are named `TOPIC_NAME-key` and `TOPIC_NAME-value`, and need to be registered before actually sending messages with them. Fortunately, it is no problem to register them multiple times: in case the schema is already present, it will simply be ignored.
+In order to register a new message, therefore, we need two schema's, one for the key and one for the value. By convention, these schema's are named `TOPIC_NAME-key` and `TOPIC_NAME-value`, and need to be registered before actually sending messages with them. Fortunately, it is no problem to register them multiple times: in case the schema is already present, it will simply be ignored. Additionally, please note that all messages use the same key schema, based on EDXL DE, which can be found [here](https://github.com/DRIVER-EU/avro-schemas/blob/master/edxl-de/edxl-de-key.avsc). So you just need to copy it over to your `TOPIC_NAME-key` file.
 
 To register a new schema pair, you have several possibilities:
 

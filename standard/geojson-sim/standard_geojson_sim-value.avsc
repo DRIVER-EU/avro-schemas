@@ -1,0 +1,265 @@
+{
+  "name": "FeatureCollection",
+  "namespace": "eu.driver.model.geojson.sim",
+  "doc": "A GeoJSON FeatureCollection object. The properties are made specific to be filled in with information from Simulated Entity data.",
+  "type": "record",
+  "fields": [{
+      "name": "type",
+      "type": {
+		"name": "FeatureCollectionType",
+        "type": "enum",
+        "symbols": [
+          "FeatureCollection"
+        ]
+      },
+      "default": "FeatureCollection"
+    },
+    {
+      "name": "bbox",
+      "type": [
+        "null",
+        {
+          "name": "BoundingBox",
+          "doc": "The value of the bbox member MUST be an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. The 'bbox' values define shapes with edges that follow lines of constant longitude, latitude, and elevation.",
+          "type": "array",
+          "items": "double"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "features",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "name": "Feature",
+            "doc": "A GeoJSON Feature object",
+            "type": "record",
+            "fields": [{
+                "name": "type",
+                "type": {
+                  "type": "enum",
+				  "name": "FeatureType",
+                  "symbols": [
+                    "Feature"
+                  ]
+                },
+                "default": "Feature"
+              },
+              {
+                "name": "bbox",
+                "type": [
+                  "null",
+                  {
+                    "type": "array",
+                    "items": "double"
+                  }
+                ],
+                "default": null
+              },
+              {
+                "name": "geometry",
+                "type": [{
+                    "name": "Point",
+                    "doc": "Describes a point geometry",
+                    "type": "record",
+                    "fields": [{
+                        "name": "type",	
+                        "type": {
+                          "type": "enum",
+						  "name": "PointType",
+                          "symbols": [
+                            "Point"
+                          ]
+                        },
+                        "default": "Point"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "items": "double"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LineString",
+                    "doc": "Describes a LineString geometry",
+                    "type": "record",
+                    "fields": [{
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+						  "name": "LineStringType",
+                          "symbols": [
+                            "LineString"
+                          ]
+                        },
+                        "default": "LineString"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+						  "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": "double"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "MultiLineString",
+                    "doc": "Describes a MultiLineString geometry",
+                    "type": "record",
+                    "fields": [{
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+						  "name": "MultiLineStringType",
+                          "symbols": [
+                            "MultiLineString"
+                          ]
+                        },
+                        "default": "MultiLineString"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+						  "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": "double"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Polygon",
+                    "doc": "Describes a Polygon geometry",
+                    "type": "record",
+                    "fields": [{
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+						  "name": "PolygonType",
+                          "symbols": [
+                            "Polygon"
+                          ]
+                        },
+                        "default": "Polygon"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+						  "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": "double"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "MultiPolygon",
+                    "doc": "Describes a MultiPolygon geometry",
+                    "type": "record",
+                    "fields": [{
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+						  "name": "MultiPolygonType",
+                          "symbols": [
+                            "MultiPolygon"
+                          ]
+                        },
+                        "default": "MultiPolygon"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "items": "double"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "properties",
+                "doc": "Properties that provide additional specification of the Simulated entity in addition to its geographic information.",
+				"type": {
+					"name": "SimulatedEntityProperties",
+					"doc": "Specfic properties for an Simulated entity",
+					"type": "record",
+					"fields": [
+						{
+							"name": "guid",
+							"type": "string",
+							"doc": "globally unique identifier for this entity"
+						},
+						{
+							"name": "name",
+							"type": "string",
+							"doc": "name of this entity"
+						},
+						{
+							"name": "speed",
+							"type": ["null", "double"],
+							"doc": "speed of the entity in m/s",
+							"default": null
+						},
+						{
+							"name": "type",
+							"type": {
+								"name": "TypeEnum",
+								"type": "enum",
+								"symbols": ["OBJECT", "PERSON", "CAR", "VAN", "TRUCK", "BOAT", "PLANE", "HELICOPTER", "MOTORCYCLE", "DRONE", "UNIT", "STATION", "UNITGROUP", "UNKNOWN"]
+							}
+						},
+						{
+							"name": "label",
+							"type": "string",
+							"doc": "Label that describes the domain of the entity. E.g. Police, Medical, Fire or Military."
+						},
+						{
+							"name": "subEntities",
+							"type": ["null", {"type": "array", "items": "string"}],
+							"doc": "Entities contained by this entity. Only used for Units, Stations and Unit Groups. Array of strings consists of guids.",
+							"default": null
+						}
+					]
+				}
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
