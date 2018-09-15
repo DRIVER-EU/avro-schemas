@@ -1,6 +1,6 @@
 {
   "name": "avro-schema-validator",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A tool to infer AVRO schema's from JSON messages, and to validate it.",
   "main": "./dist/cli.js",
   "typings": "./dist/cli.d.ts",
