@@ -1,0 +1,17 @@
+{
+  "guid": "4eb488bb-f5a2-4de8-8987-5241a8d38e62",
+  "name": "test ambulance",
+  "owner": "xvr-css-hub",
+  "location": { "latitude": 52.00064586106145, "longitude": 4.348803323745756, "altitude": 0 },
+  "orientation": { "yaw": 73.55690987936896, "pitch": 0, "roll": 0 },
+  "velocity": { "yaw": 73.55690987936896, "pitch": 0, "magnitude": 11 },
+  "visibleForParticipant": true,
+  "movable": true,
+  "itemType": { "eu.driver.model.sim.entity.item.VehicleType": { "subType": "CAR" } },
+  "scenarioLabel": { "eu.driver.model.sim.entity.item.RescueLabel": { "subLabel": "MEDICAL" } },
+  "userTags": null,
+  "physicalConnections": null,
+  "group": null,
+  "formation": null,
+  "unit": null
+}
