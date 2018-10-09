@@ -317,6 +317,7 @@
             "fields" : [ {
               "name" : "DATIME",
               "type" : [ "null", "long" ],
+			  "default" : null,
               "source" : "element DATIME"
             }, {
               "name" : "TYPE",
@@ -330,18 +331,22 @@
                 "fields" : [ {
                   "name" : "LOC_ID",
                   "type" : [ "null", "string" ],
+				  "default": null,
                   "source" : "element LOC_ID"
                 }, {
                   "name" : "NAME",
                   "type" : [ "null", "string" ],
+				  "default": null,
                   "source" : "element NAME"
                 }, {
                   "name" : "TYPE",
                   "type" : [ "null", "string" ],
+				  "default": null,
                   "source" : "element TYPE"
                 }, {
                   "name" : "COORDSYS",
                   "type" : [ "null", "string" ],
+				  "default": null,
                   "source" : "element COORDSYS"
                 }, {
                   "name" : "COORD",
@@ -361,6 +366,7 @@
                       }, {
                         "name" : "HEIGHT",
                         "type" : [ "null", "double" ],
+						"default": null,
                         "source" : "element HEIGHT"
                       } ]
                     }
@@ -369,35 +375,41 @@
                 }, {
                   "name" : "HEIGHT_ROLE",
                   "type" : [ "null", "string" ],
+				  "default": null,
                   "source" : "element HEIGHT_ROLE"
                 }, {
                   "name" : "ADDRESS",
-                  "type" : {
+                  "type" : ["null",{
                     "type" : "array",
                     "items" : "string"
-                  },
+                  }],
+				  "default": null,
                   "source" : "element ADDRESS"
                 } ]
               },
               "source" : "element POSITION"
             }, {
               "name" : "WEATHER",
-              "type" : {
+              "type" : ["null",{
                 "type" : "array",
                 "items" : "string"
-              },
+              }],
+			  "default": null,
               "source" : "element WEATHER"
             }, {
               "name" : "FREETEXT",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element FREETEXT"
             }, {
               "name" : "ID",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element ID"
             }, {
               "name" : "STATUS",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element STATUS"
             } ]
           }
