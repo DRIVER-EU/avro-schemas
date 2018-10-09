@@ -23,10 +23,11 @@
           }, {
             "name" : "CREATION",
             "type" : [ "null", "long" ],
+			"default": null,
             "source" : "element CREATION"
           }, {
             "name" : "LINK",
-            "type" : {
+            "type" : ["null", {
               "type" : "array",
               "items" : {
                 "type" : "record",
@@ -41,23 +42,28 @@
                   "source" : "element ROLE"
                 } ]
               }
-            },
+            }],
+			"default" : null,
             "source" : "element LINK"
           }, {
             "name" : "LEVEL",
             "type" : [ "null", "string" ],
+			"default": null,
             "source" : "element LEVEL"
           }, {
             "name" : "SECLASS",
             "type" : [ "null", "string" ],
+			"default": null,
             "source" : "element SECLASS"
           }, {
             "name" : "FREETEXT",
             "type" : [ "null", "string" ],
+			"default": null,
             "source" : "element FREETEXT"
           }, {
             "name" : "URGENCY",
             "type" : [ "null", "string" ],
+			"default": null,
             "source" : "element URGENCY"
           }, {
             "name" : "ORIGIN",
@@ -78,10 +84,11 @@
                 "source" : "element NAME"
               } ]
             } ],
+			"default" : null,
             "source" : "element ORIGIN"
           }, {
             "name" : "EXTERNAL_INFO",
-            "type" : {
+            "type" : [ "null", {
               "type" : "array",
               "items" : {
                 "type" : "record",
@@ -100,7 +107,8 @@
                   "source" : "element TYPE"
                 } ]
               }
-            },
+            }],
+			"default" : null,
             "source" : "element EXTERNAL_INFO"
           } ]
         },
@@ -117,10 +125,12 @@
       }, {
         "name" : "NAME",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element NAME"
       }, {
         "name" : "MAIN_EVENT_ID",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element MAIN_EVENT_ID"
       }, {
         "name" : "ETYPE",
@@ -157,42 +167,51 @@
             "source" : "element ENV"
           } ]
         } ],
+		"default": null,
         "source" : "element ETYPE"
       }, {
         "name" : "SOURCE",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element SOURCE"
       }, {
         "name" : "SCALE",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element SCALE"
       }, {
         "name" : "CERTAINTY",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element CERTAINTY"
       }, {
         "name" : "DECL_DATIME",
         "type" : [ "null", "long" ],
+		"default": null,
         "source" : "element DECL_DATIME"
       }, {
         "name" : "OCC_DATIME",
         "type" : [ "null", "long" ],
+		"default": null,
         "source" : "element OCC_DATIME"
       }, {
         "name" : "OBS_DATIME",
         "type" : [ "null", "long" ],
+		"default": null,
         "source" : "element OBS_DATIME"
       }, {
         "name" : "STATUS",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element STATUS"
       }, {
         "name" : "RISK_ASSESSMNT",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element RISK_ASSESSMNT"
       }, {
         "name" : "REFERENCE",
-        "type" : {
+        "type" : ["null", {
           "type" : "array",
           "items" : {
             "type" : "record",
@@ -210,12 +229,13 @@
               "source" : "element OTHER_EVENT_ID"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element REFERENCE"
       }, {
         "name" : "CASUALTIES",
-        "type" : {
-          "type" : "array",
+        "type" : ["null", {
+          "type" :  "array",
           "items" : {
             "type" : "record",
             "name" : "CASUALTIESEVENT",
@@ -226,38 +246,46 @@
             }, {
               "name" : "DATIME",
               "type" : [ "null", "long" ],
+			  "default": null,
               "source" : "element DATIME"
             }, {
               "name" : "DECONT",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element DECONT"
             }, {
               "name" : "TRIAGERED",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element TRIAGERED"
             }, {
               "name" : "TRIAGEYELLOW",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element TRIAGEYELLOW"
             }, {
               "name" : "TRIAGEGREEN",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element TRIAGEGREEN"
             }, {
               "name" : "TRIAGEBLACK",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element TRIAGEBLACK"
             }, {
               "name" : "MISSING",
               "type" : [ "null", "string" ],
+			  "default": null,
               "source" : "element MISSING"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element CASUALTIES"
       }, {
         "name" : "EVAC",
-        "type" : {
+        "type" : ["null", {
           "type" : "array",
           "items" : {
             "type" : "record",
@@ -276,11 +304,12 @@
               "source" : "element EVACUATED"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element EVAC"
       }, {
         "name" : "EGEO",
-        "type" : {
+        "type" : ["null",{
           "type" : "array",
           "items" : {
             "type" : "record",
@@ -372,22 +401,25 @@
               "source" : "element STATUS"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element EGEO"
       }, {
         "name" : "CAUSE",
         "type" : [ "null", "string" ],
+		"default" : null,
         "source" : "element CAUSE"
       }, {
         "name" : "FREETEXT",
         "type" : [ "null", "string" ],
+		"default": null,
         "source" : "element FREETEXT"
       } ]
     } ],
     "source" : "element EVENT"
   }, {
         "name" : "RESOURCE",
-        "type" : {
+        "type" : ["null", {
           "type" : "array",
           "items" : {
             "type" : "record",
@@ -502,11 +534,12 @@
               "source" : "element CONTACT"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element RESOURCE"
       }, {
         "name" : "MISSION",
-        "type" : {
+        "type" : ["null", {
           "type" : "array",
           "items" : {
             "type" : "record",
@@ -581,7 +614,8 @@
               "source" : "element PRIORITY"
             } ]
           }
-        },
+        }],
+		"default" : null,
         "source" : "element MISSION"
       } ],
   "source" : "document"
