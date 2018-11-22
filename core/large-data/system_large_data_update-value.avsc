@@ -47,6 +47,7 @@
           "video_mpeg",
           "video_msvideo",
           "video_avi",
+		  "netcdf",
           "other"
         ]
       }
