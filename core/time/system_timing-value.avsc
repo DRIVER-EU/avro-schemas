@@ -39,6 +39,6 @@
         "symbols": ["Idle", "Initialized", "Started", "Paused", "Stopped"]
       },
       "doc": "The State of the Test-Bed Time Service."
-    },
+    }
   ]
 }
