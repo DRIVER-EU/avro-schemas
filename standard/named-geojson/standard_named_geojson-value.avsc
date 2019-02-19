@@ -1,20 +1,21 @@
 {
-  "name": "Envelope",
+  "name": "GeoJSONEnvelope",
   "namespace": "eu.driver.model.geojson",
   "doc": "An envelope containing a GeoJSON FeatureCollection object, with a unique id and a title.",
   "type": "record",
   "fields": [
     {
-      "name": "guid",
-      "type": ["null", "string"],
-      "doc": "Globally unique identifier for this entity",
-      "default": null
-    },
-    {
-      "name": "title",
-      "type": ["null", "string"],
-      "doc": "Display title for this entity",
-      "default": null
+      "name": "properties",
+      "namespace": "eu.driver.model.geojson",
+      "doc": "Metadata for the FeatureCollection in the geojson field.",
+      "type": [
+        "null",
+        {
+          "name": "Json",
+          "type": "map",
+          "values": ["null", "boolean", "string", "int", "long", "float", "double"]
+        }
+      ]
     },
     {
       "name": "geojson",
