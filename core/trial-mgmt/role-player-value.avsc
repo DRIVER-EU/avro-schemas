@@ -42,7 +42,7 @@
     {
       "name": "participantNames",
       "doc": "The names of the person that have to receive the message.",
-      "type": ["null", {"type": "array", "items": "string"],
+      "type": ["null", {"type": "array", "items": "string"}],
       "default": null
     },
     {
