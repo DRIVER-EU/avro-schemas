@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "SessionMgmt",
-  "namespace": "eu.driver.model.tm",
+  "namespace": "eu.driver.model.core",
   "doc": "This is the message for init. the trial session.",
   "fields": [
     {
@@ -50,6 +50,5 @@
       "type": ["null", "string"],
       "default": null
     }
-    
   ]
 }

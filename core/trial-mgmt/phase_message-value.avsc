@@ -1,10 +1,10 @@
 {
   "type": "record",
   "name": "PhaseMessage",
-  "namespace": "eu.driver.model.tm",
+  "namespace": "eu.driver.model.core",
   "doc": "This is the message for phase information.",
   "fields": [
-  	{
+    {
       "name": "id",
       "doc": "The unique ID of the message",
       "type": "string"
