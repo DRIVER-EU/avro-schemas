@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "PhaseMessage",
+  "name": "RolePlayerMessage",
   "namespace": "eu.driver.model.core",
-  "doc": "This is the message for phase information.",
+  "doc": "This is the message for role players, which is sent twice: when the role player needs to do something, and when he is done.",
   "fields": [
     {
       "name": "id",
