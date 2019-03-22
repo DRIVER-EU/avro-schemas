@@ -2,7 +2,7 @@
   "type": "record",
   "name": "AdminHeartbeat",
   "namespace": "eu.driver.model.core",
-  "doc": "Heartbeat message, indicating that the is up and alive.",
+  "doc": "Heartbeat message, indicating that the admin tool is up and alive.",
   "fields": [
     {
       "doc": "ID of the adin tool",
