@@ -12,6 +12,6 @@ The `system_phase_message-value.avsc` message is a very simple message to indica
 
 ## Role player message
 
-A role player is a person who performs an 'act' in the current scenario. It may be a very literal act, in which the role player performs the role of a victim, or it may be more subtle, such as calling one of the participants, or sending an email or tweet manually. It may even be instructing a simulator to start a sequence of events. 
+A role player is a person who performs an 'act' in the current scenario. It may be a very literal act, in which the role player performs the role of a victim, or it may be more subtle, such as calling one of the participants, or sending an email or tweet manually. It may even be instructing a simulator to start a sequence of events.
 
 The `system_role_player-value.avsc` message contains a summary of the information and it will be sent twice: initially, when the role player is requested to perform the role, and finally, when the role player is done and provides a manual confirmation (and optional comment).
