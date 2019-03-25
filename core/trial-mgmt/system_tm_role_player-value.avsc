@@ -2,7 +2,7 @@
   "type": "record",
   "name": "RolePlayerMessage",
   "namespace": "eu.driver.model.core",
-  "doc": "This is the message for role players, which is sent twice: when the role player needs to do something, and when he is done.",
+  "doc": "This is the message for role players, which is sent when the task is done.",
   "fields": [
     {
       "name": "id",
@@ -31,7 +31,7 @@
     },
     {
       "name": "description",
-      "doc": "The description of the role play message.",
+      "doc": "The longer description of the role play message.",
       "type": "string"
     },
     {
@@ -44,16 +44,6 @@
       "doc": "The names of the person that have to receive the message.",
       "type": ["null", { "type": "array", "items": "string" }],
       "default": null
-    },
-    {
-      "name": "state",
-      "type": {
-        "name": "RolePlayState",
-        "namespace": "eu.driver.model.tm",
-        "type": "enum",
-        "symbols": ["SCHEDULED", "ON_HOLD", "IN_PROGRESS", "EXECUTED", "CANCELLED", "TIMEOUT"]
-      },
-      "doc": "The current role play state."
     },
     {
       "name": "comment",
