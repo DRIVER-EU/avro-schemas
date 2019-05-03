@@ -1,0 +1,41 @@
+{
+  "name": "SumoConfiguration",
+  "namespace": "eu.driver.model.sumo",
+  "type": "record",
+  "doc": "Initialization message, contains simulation file names and settings (sent to SUMO)",
+  "fields": [
+    {
+      "name": "configFile",
+      "type": "string",
+      "doc": "Configuration file name (can be an absolute or relative path). This file contains references to the network and the routes etc."
+    },
+    {
+      "name": "begin",
+      "type": "long",
+      "doc": "Begin time of the simulation in milliseconds >= 0"
+    },
+    {
+      "name": "end",
+      "type": "long",
+      "doc": "End time of the simulation in milliseconds > begin"
+    },
+    {
+      "name": "aggregation",
+      "type": "long",
+      "default": 900000,
+      "doc": "Aggregation period for simulation outputs in milliseconds > 0"
+    },
+    {
+      "name": "singleVehicle",
+      "type": "long",
+      "default": -1,
+      "doc": "Aggregation period for the outputs of each vehicle in milliseconds (default is -1, which means do not collect individual data)"
+    },
+    {
+      "name": "affectedTraffic",
+      "type": "long",
+      "default": 300000,
+      "doc": "Aggregation period for the statistics about affected traffic in milliseconds"
+    }
+  ]
+}
