@@ -1,0 +1,55 @@
+{
+  "type": "record",
+  "name": "RolePlayerMessage",
+  "namespace": "eu.driver.model.core",
+  "doc": "This is the message for role players, which is sent when the task is done.",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "The unique ID of the message",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": {
+        "name": "Type",
+        "namespace": "eu.driver.model.tm",
+        "type": "enum",
+        "symbols": ["CALL", "ACTION", "MESSAGE", "MAIL", "TWEET"]
+      },
+      "doc": "The type of role play."
+    },
+    {
+      "name": "title",
+      "doc": "The title of the role play message.",
+      "type": "string"
+    },
+    {
+      "name": "headline",
+      "doc": "The headline of the role play message.",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "doc": "The longer description of the role play message.",
+      "type": "string"
+    },
+    {
+      "name": "rolePlayerName",
+      "doc": "The name of the person that has to handle the message.",
+      "type": "string"
+    },
+    {
+      "name": "participantNames",
+      "doc": "The names of the person that have to receive the message.",
+      "type": ["null", { "type": "array", "items": "string" }],
+      "default": null
+    },
+    {
+      "name": "comment",
+      "doc": "An optional comment to the session state.",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

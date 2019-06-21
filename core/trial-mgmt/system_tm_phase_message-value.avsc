@@ -1,0 +1,34 @@
+{
+  "type": "record",
+  "name": "PhaseMessage",
+  "namespace": "eu.driver.model.core",
+  "doc": "This is the message for phase information.",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "The unique ID of the message",
+      "type": "string"
+    },
+    {
+      "name": "phase",
+      "type": {
+        "name": "Phase",
+        "namespace": "eu.driver.model.tm",
+        "type": "enum",
+        "symbols": ["PROPER_NAME", "INITIALIZATION", "PREPARATION", "PRE_INCIDENT", "INCIDENT", "POST_INCIDENT"]
+      },
+      "doc": "The current active phase."
+    },
+    {
+      "name": "isStarting",
+      "doc": "Indicating if started (true) or ended (false).",
+      "type": "boolean"
+    },
+    {
+      "name": "alternativeName",
+      "doc": "An optional alternative name for the phase. Linked to PROPER_NAME.",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

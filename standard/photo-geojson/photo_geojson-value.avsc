@@ -1,0 +1,698 @@
+{
+  "name": "FeatureCollection",
+  "namespace": "eu.driver.model.geojson.photo",
+  "doc": "A GeoJSON FeatureCollection object. As the properties are generic, it should be replaced by a record with named properties.",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": {
+        "name": "FeatureCollectionType",
+        "type": "enum",
+        "symbols": [
+          "FeatureCollection"
+        ]
+      },
+      "default": "FeatureCollection"
+    },
+    {
+      "name": "bbox",
+      "type": [
+        "null",
+        {
+          "name": "BoundingBox",
+          "namespace": "eu.driver.model.geojson.photo",
+          "doc": "The value of the bbox member MUST be an array of length 2*n where n is the number of dimensions represented in the contained geometries, with all axes of the most southwesterly point followed by all axes of the more northeasterly point. The axes order of a bbox follows the axes order of geometries. The 'bbox' values define shapes with edges that follow lines of constant longitude, latitude, and elevation.",
+          "type": "array",
+          "items": "double"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "features",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "name": "Feature",
+            "namespace": "eu.driver.model.geojson.photo",
+            "doc": "A GeoJSON Feature object",
+            "type": "record",
+            "fields": [
+              {
+                "name": "type",
+                "type": {
+                  "type": "enum",
+                  "name": "FeatureType",
+                  "symbols": [
+                    "Feature"
+                  ]
+                },
+                "default": "Feature"
+              },
+              {
+                "name": "bbox",
+                "type": [
+                  "null",
+                  {
+                    "type": "array",
+                    "items": "double"
+                  }
+                ],
+                "default": null
+              },
+              {
+                "name": "geometry",
+                "type": [
+                  {
+                    "name": "Point",
+                    "namespace": "eu.driver.model.geojson.photo",
+                    "doc": "Describes a point geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+                          "name": "PointType",
+                          "symbols": [
+                            "Point"
+                          ]
+                        },
+                        "default": "Point"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "items": "double"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "LineString",
+                    "namespace": "eu.driver.model.geojson.photo",
+                    "doc": "Describes a LineString geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+                          "name": "LineStringType",
+                          "symbols": [
+                            "LineString"
+                          ]
+                        },
+                        "default": "LineString"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": "double"
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "MultiLineString",
+                    "namespace": "eu.driver.model.geojson.photo",
+                    "doc": "Describes a MultiLineString geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+                          "name": "MultiLineStringType",
+                          "symbols": [
+                            "MultiLineString"
+                          ]
+                        },
+                        "default": "MultiLineString"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": "double"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Polygon",
+                    "namespace": "eu.driver.model.geojson.photo",
+                    "doc": "Describes a Polygon geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+                          "name": "PolygonType",
+                          "symbols": [
+                            "Polygon"
+                          ]
+                        },
+                        "default": "Polygon"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "name": "CoordinatesType",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": "double"
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "MultiPolygon",
+                    "namespace": "eu.driver.model.geojson.photo",
+                    "doc": "Describes a MultiPolygon geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "type": "enum",
+                          "name": "MultiPolygonType",
+                          "symbols": [
+                            "MultiPolygon"
+                          ]
+                        },
+                        "default": "MultiPolygon"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "items": "double"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "properties",
+                "type": {
+                  "type": "record",
+                  "name": "properties",
+                  "namespace": "eu.driver.model.geojson.photo",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "type": "long"
+                    },
+                    {
+                      "name": "priority",
+                      "type": "long"
+                    },
+                    {
+                      "name": "viewed",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "signature",
+                      "type": "string"
+                    },
+                    {
+                      "name": "instant",
+                      "type": "string"
+                    },
+                    {
+                      "name": "created",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    {
+                      "name": "updated",
+                      "type": "string"
+                    },
+                    {
+                      "name": "caption",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    {
+                      "name": "interpretation",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "meta",
+                      "namespace": "eu.driver.model.geojson.photo",
+                      "type": {
+                        "type": "record",
+                        "name": "meta",
+                        "fields": [
+                          {
+                            "name": "Source",
+                            "namespace": "eu.driver.model.geojson.photo",
+                            "type": {
+                              "type": "record",
+                              "name": "Source",
+                              "fields": [
+                                {
+                                  "name": "filename",
+                                  "type": "string"
+                                },
+                                {
+                                  "name": "camera_make",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                },
+                                {
+                                  "name": "width",
+                                  "type": "long"
+                                },
+                                {
+                                  "name": "size",
+                                  "type": "long"
+                                },
+                                {
+                                  "name": "height",
+                                  "type": "long"
+                                },
+                                {
+                                  "name": "direction",
+                                  "type": [
+                                    "null",
+                                    "double"
+                                  ]
+                                },
+                                {
+                                  "name": "camera_model",
+                                  "type": [
+                                    "null",
+                                    "string"
+                                  ]
+                                },
+                                {
+                                  "name": "field_of_view",
+                                  "type": [
+                                    "null",
+                                    "double"
+                                  ]
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "name": "version",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_id",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "seen",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "started",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "stopped",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "location_latitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "location_longitude",
+                      "type": "double"
+                    },
+                    {
+                      "name": "location_time",
+                      "type": "string"
+                    },
+                    {
+                      "name": "location_accuracy",
+                      "type": [
+                        "double",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "location_altitude",
+                      "type": [
+                        "double",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "location_provider",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "location_speed",
+                      "type": [
+                        "double",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "location_meta",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "mission_id",
+                      "type": [
+                        "long",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "mission_name",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "thumbnail_hash",
+                      "type": "string"
+                    },
+                    {
+                      "name": "preview_hash",
+                      "type": "string"
+                    },
+                    {
+                      "name": "category_id",
+                      "type": [
+                        "long",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "category_name",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_device_type",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_last_login",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_phone",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_last_rate",
+                      "type": [
+                        "long",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_updated",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_created",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_application_type",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_connection_type",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "application_connection_state",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "user_name",
+                      "type": "string"
+                    },
+                    {
+                      "name": "user_id",
+                      "type": "long"
+                    },
+                    {
+                      "name": "user_username",
+                      "type": "string"
+                    },
+                    {
+                      "name": "user_color",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "user_connection_type",
+                      "type": [
+                        "int",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "user_last_login",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "user_last_rate",
+                      "type": [
+                        "long",
+                        "null"
+                      ]
+                    },
+                    {
+                      "name": "observation_url",
+                      "type": "string"
+                    },
+                    {
+                      "name": "observation_type",
+                      "type": "string"
+                    },
+                    {
+                      "name": "preview_url",
+                      "type": "string"
+                    },
+                    {
+                      "name": "preview_with_overlay_url",
+                      "type": "string"
+                    },
+                    {
+                      "name": "thumbnail_url",
+                      "type": "string"
+                    },
+                    {
+                      "name": "files",
+                      "type": {
+                        "type": "array",
+                        "items": {
+                          "type": "record",
+                          "name": "files",
+                          "namespace": "eu.driver.model.geojson.photo.files",
+                          "fields": [
+                            {
+                              "name": "id",
+                              "type": "long"
+                            },
+                            {
+                              "name": "file_type",
+                              "type": "int"
+                            },
+                            {
+                              "name": "size",
+                              "type": [
+                                "long",
+                                "null"
+                              ]
+                            },
+                            {
+                              "name": "state",
+                              "type": "int"
+                            },
+                            {
+                              "name": "created",
+                              "type": "string"
+                            },
+                            {
+                              "name": "request_until",
+                              "type": [
+                                "null",
+                                "string"
+                              ],
+                              "default": null
+                            },
+                            {
+                              "name": "meta",
+                              "type": [
+                                "null",
+                                "string",
+                                {
+                                  "type": "record",
+                                  "name": "meta",
+                                  "fields": [
+                                    {
+                                      "name": "Region",
+                                      "type": {
+                                        "type": "record",
+                                        "name": "Region",
+                                        "fields": [
+                                          {
+                                            "name": "x",
+                                            "type": "long"
+                                          },
+                                          {
+                                            "name": "y",
+                                            "type": "long"
+                                          },
+                                          {
+                                            "name": "width",
+                                            "type": "long"
+                                          },
+                                          {
+                                            "name": "height",
+                                            "type": "long"
+                                          },
+                                          {
+                                            "name": "scale",
+                                            "type": "double"
+                                          },
+                                          {
+                                            "name": "quality",
+                                            "type": "int"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "name": "hash",
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            },
+                            {
+                              "name": "url",
+                              "type": [
+                                "null",
+                                "string"
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

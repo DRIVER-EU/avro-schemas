@@ -1,0 +1,54 @@
+{
+  "type": "record",
+  "name": "SessionMgmt",
+  "namespace": "eu.driver.model.core",
+  "doc": "This is the message for init. the trial session.",
+  "fields": [
+    {
+      "name": "trialId",
+      "doc": "The unique ID of the Trial",
+      "type": "string"
+    },
+    {
+      "name": "trialName",
+      "doc": "The name of the Trial",
+      "type": "string"
+    },
+    {
+      "name": "scenarioId",
+      "doc": "The unique ID of the Scenario",
+      "type": "string"
+    },
+    {
+      "name": "scenarioName",
+      "doc": "The name of the Scenario",
+      "type": "string"
+    },
+    {
+      "name": "sessionId",
+      "doc": "The unique ID of the Session",
+      "type": "string"
+    },
+    {
+      "name": "sessionName",
+      "doc": "The name of the Session",
+      "type": "string"
+    },
+    {
+      "name": "sessionState",
+      "type": {
+        "name": "SessionState",
+        "namespace": "eu.driver.model.tm",
+        "type": "enum",
+        "symbols": ["START", "STOP"]
+      },
+      "doc": "The state of the Session."
+    },
+    {
+      "name": "comment",
+      "doc": "An optional comment to the session state.",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}

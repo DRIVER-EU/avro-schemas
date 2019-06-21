@@ -29,6 +29,16 @@
       "type": "float",
       "doc":
         "Positive number, indicating how fast the simulation / trial time moves with respect to the actual time. A value of 0 means a pause, 1 is as fast as real-time."
+    },
+	{
+      "name": "state",
+      "type": {
+        "name": "State",
+        "namespace": "eu.driver.model.core",
+        "type": "enum",
+        "symbols": ["Idle", "Initialized", "Started", "Paused", "Stopped"]
+      },
+      "doc": "The State of the Test-Bed Time Service."
     }
   ]
 }

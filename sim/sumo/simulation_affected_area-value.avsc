@@ -1,0 +1,65 @@
+{
+  "type": "record",
+  "name": "AffectedArea",
+  "namespace": "eu.driver.model.sumo",
+  "doc": "Non-drivable area (sent to SUMO)",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "Area ID"
+    },
+    {
+      "name": "area",
+      "type": {
+        "name": "areaPoly",
+        "type": "record",
+        "fields": [
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "coordinates",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": "float"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "doc": "Polygon area of the non-drivable area as GeoJSON MultiPolygon"
+    },
+    {
+      "name": "begin",
+      "type": "long",
+      "doc": "Begin time of the duration in milliseconds"
+    },
+    {
+      "name": "end",
+      "type": "long",
+      "doc": "End time of the duration in milliseconds"
+    },
+    {
+      "name": "trafficLightsBroken",
+      "type": "boolean",
+      "default": false,
+      "doc": "whether the traffic lights in the area are out of order"
+    },
+    {
+      "name": "restriction",
+      "type": "string",
+      "default": "all",
+      "doc": "Types of the vehicles, which are not allowed in this area (SUMO vehicle types) with the special string 'all' as default"
+    }
+  ]
+}

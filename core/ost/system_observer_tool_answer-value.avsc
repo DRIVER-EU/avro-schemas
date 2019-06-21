@@ -1,0 +1,112 @@
+{
+  "type": "record",
+  "name": "ObserverToolAnswer",
+  "namespace": "eu.driver.model.core",
+  "doc": "This message represents one observation of one observer that was provided by the app.",
+  "fields": [
+    {
+      "name": "trialId",
+      "type": "int",
+      "doc": "The unique identifier of the running Trial."
+    },
+    {
+      "name": "sessionId",
+      "type": "int",
+      "doc": "The sessionId for the running Trial."
+    },
+    {
+      "name": "answerId",
+      "type": "int",
+      "doc": "The id of the answer in OST databased."
+    },
+    {
+      "name": "timeSendUTC",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "The time when questionnaire was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+    },
+    {
+      "name": "timeWhen",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "The time provided by user in the questionnaire (could be simulation time) was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+    },
+    {
+      "name": "observationTypeName",
+      "type": "string",
+      "doc": "The name of the questionnaire."
+    },
+    {
+      "name": "observervationTypeId",
+      "type": "int",
+      "doc": "The id of the questionnaire in the OST database."
+    },
+    {
+      "name": "observationTypeDescription",
+      "type": "string",
+      "doc": "The description of the questionnaire."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "doc": "The description provided by the user at the end of the questionnaire (attachments section)."
+    },
+    {
+      "name": "multiplicity",
+      "type": "boolean",
+      "doc": "The information if this questionnaire could be answered multiple times (you could expect more than one answer from single user)."
+    },
+    {
+      "name": "questions",
+      "type": [
+        "null",
+        {
+          "name": "Question",
+          "namespace": "eu.driver.model.core",
+          "type": "record",
+          "fields": [
+            {
+              "name": "id",
+              "type": "int",
+              "doc": "The id of the question in OST database."
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "doc": "The question."
+            },
+            {
+              "name": "description",
+              "type": "string",
+              "doc": "The additional clarifications shown below the question."
+            },
+            {
+              "name": "answer",
+              "type": "string",
+              "doc": "The answer marked by the user (names of radio buttons, names of checkboxes, value of slider or text)."
+            },
+            {
+              "name": "comment",
+              "type": "string",
+              "doc": "The comment provided by the user below the question."
+            },
+            {
+              "name": "typeOfQuestion",
+              "type": {
+                "name": "TypeOfQuestion",
+                "namespace": "eu.driver.model.core",
+                "type": "enum",
+                "symbols": ["slider", "checkbox", "radiobutton", "text"]
+              }
+            }
+          ]
+        },
+        {
+          "type": "array",
+          "items": "eu.driver.model.core.Question"
+        }
+      ],
+      "default": null
+    }
+  ]
+}
