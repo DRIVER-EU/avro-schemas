@@ -12,8 +12,8 @@
       "type": "string"
     },
     {
-      "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this message",
+      "name": "applicant",
+      "doc": "Identifier of the simulator sending the request",
       "type": "string"
     },
     {
@@ -71,7 +71,7 @@
       "type": [
 				"null",
 				{
-					"name": "Response",
+					"name": "TransportResponse",
 					"namespace": "eu.driver.model.sim.request",
 					"type": "enum",
 					"symbols": ["Approved", "Rejected", "ApprovedButIgnoringRoute"]

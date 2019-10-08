@@ -12,23 +12,23 @@
       "type": "string"
     },
     {
-      "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this message",
+      "name": "applicant",
+      "doc": "Identifier of the simulator sending the request",
       "type": "string"
     },
     {
       "name": "entity",
-      "doc": "Globally unique identifier for the entity that should transport",
+      "doc": "Globally unique identifier for the entity the applicant wants to own",
       "type": "string"
     },
-		{
+	{
       "name": "ownershipType",
 			"doc": "The type of ownership that is requested",
       "type": {
 				"name": "OwnershipType",
 				"namespace": "eu.driver.model.sim.request",
 				"type": "enum",
-				"symbols": ["TakeOver", "TakeOverAndReturn", "Change"]
+				"symbols": ["TakeOver", "TakeOverAndReturn", "Alter"]
 			}
     },
 		{
@@ -37,7 +37,7 @@
       "type": [
 				"null",
 				{
-					"name": "Response",
+					"name": "OwnershipResponse",
 					"namespace": "eu.driver.model.sim.request",
 					"type": "enum",
 					"symbols": ["Approved", "Rejected", "Return"]

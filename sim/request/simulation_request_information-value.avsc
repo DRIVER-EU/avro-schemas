@@ -12,8 +12,8 @@
       "type": "string"
     },
     {
-      "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this message",
+      "name": "applicant",
+      "doc": "Identifier of the simulator sending the request",
       "type": "string"
     },
     {

@@ -11,10 +11,35 @@
       "doc": "Globally unique identifier for this entity",
       "type": "string"
     },
+		{
+      "name": "postType",
+      "doc": "Concrete type of this post",
+      "type": ["null, "string"],
+			"default": null
+    },
     {
       "name": "owner",
       "doc": "Identifier of the simulator currently responsible for this entity",
-      "type": "string"
+      "type": ["null, "string"],
+			"default": null
+    },
+		{
+      "name": "visibleForParticipant",
+      "doc": "Indication whether or not this post is visible for any participant",
+      "type": ["null", "boolean"],
+			"default": null
+    },
+		{
+      "name": "tags",
+      "doc": "Map of all tags associated with this POI",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
     },
 		{
       "name": "header",
@@ -118,12 +143,6 @@
       "type": "string"
     },
 		{
-      "name": "postType",
-      "doc": "Concrete type of this post",
-      "type": ["null, "string"],
-			"default": null
-    },
-		{
       "name": "mediumType",
       "doc": "Concrete type of the medium this post was placed on/in",
       "type": ["null", "string"],
@@ -133,12 +152,6 @@
       "name": "mediumName",
       "doc": "Name of the medium this post was placed on/in",
       "type": ["null", "string"],
-			"default": null
-    },    
-    {
-      "name": "visibleForParticipant",
-      "doc": "Indication whether or not this post is visible for any participant",
-      "type": ["null", "boolean"],
 			"default": null
     }
   ]
