@@ -1,4 +1,5 @@
 {
+	"_comment": "TODO: Include CWA in documentation? Do we want an inject message as well (informing which simulators can executed which injects?",
   "name": "RequestStartInject",
   "namespace": "eu.driver.model.sim.request",
   "doc":
@@ -19,6 +20,20 @@
       "name": "inject",
       "doc": "Name of the inject that needs to be started",
       "type": "string"
+    },
+		{
+      "name": "response",
+			"doc": "Response of the simulator that received the request",
+      "type": [
+				"null",
+				{
+					"name": "Response",
+					"namespace": "eu.driver.model.sim.request",
+					"type": "enum",
+					"symbols": ["Approved", "Rejected"]
+				},
+			],
+      "default: null
     }
   ]
 }
