@@ -1,0 +1,55 @@
+{
+	"_comment": "TODO: include CWA in documentation?",
+  "name": "SessionMgmt",
+  "namespace": "eu.driver.model.sim.core",
+  "doc": "Common Simulation Space Session Management message, representing a notification regarding a specific session. *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+	"type": "record",
+  "fields": [
+    {
+      "name": "guid",
+      "doc": "Globally unique identifier for the session",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "doc": "The name of the session",
+      "type": "string"
+    },
+		{
+      "name": "tags",
+      "doc": "Map of all tags associated with this item",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "state",
+			"doc": "The current state this session is in",
+      "type": {
+        "name": "SessionState",
+        "namespace": "eu.driver.model.sim.core",
+        "type": "enum",
+        "symbols": ["Init", "Start", "Pause", "Jump", "Speed", "Resume", "Stop", "Close"]
+      }
+    },
+		{
+      "name": "response",
+			"doc": "Response of the simulator that received the session management message",
+      "type": [
+				"null",
+				{
+					"name": "SessionResponse",
+					"namespace": "eu.driver.model.sim.core",
+					"type": "enum",
+					"symbols": ["Initialized", "Set"]
+				},
+			],
+      "default: null
+    }
+  ]
+}
