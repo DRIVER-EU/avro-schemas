@@ -31,7 +31,7 @@
     },
 		{
       "name": "tags",
-      "doc": "Map of all tags associated with this post",
+      "doc": "Map of all tags associated with this entity",
       "type": [
         "null",
         {
