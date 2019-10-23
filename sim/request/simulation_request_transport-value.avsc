@@ -75,9 +75,9 @@
 					"namespace": "eu.driver.model.sim.request",
 					"type": "enum",
 					"symbols": ["Approved", "Rejected", "ApprovedButIgnoringRoute"]
-				},
+				}
 			],
-      "default: null
+      "default": null
     }
   ]
 }

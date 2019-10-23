@@ -47,9 +47,9 @@
 					"namespace": "eu.driver.model.sim.core",
 					"type": "enum",
 					"symbols": ["Initialized", "Set"]
-				},
+				}
 			],
-      "default: null
+      "default": null
     }
   ]
 }

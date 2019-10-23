@@ -21,7 +21,7 @@
       "doc": "Globally unique identifier for the entity the applicant wants to own",
       "type": "string"
     },
-	{
+		{
       "name": "ownershipType",
 			"doc": "The type of ownership that is requested",
       "type": {
@@ -41,9 +41,9 @@
 					"namespace": "eu.driver.model.sim.request",
 					"type": "enum",
 					"symbols": ["Approved", "Rejected", "Return"]
-				},
+				}
 			],
-      "default: null
+      "default": null
     }
   ]
 }

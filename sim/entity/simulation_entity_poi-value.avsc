@@ -25,7 +25,7 @@
     {
       "name": "owner",
       "doc": "Identifier of the simulator currently responsible for this entity",
-      "type": ["null, "string"],
+      "type": ["null", "string"],
 			"default": null
     },
 		{

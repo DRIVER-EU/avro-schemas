@@ -14,13 +14,13 @@
 		{
       "name": "postType",
       "doc": "Concrete type of this post",
-      "type": ["null, "string"],
+      "type": ["null", "string"],
 			"default": null
     },
     {
       "name": "owner",
       "doc": "Identifier of the simulator currently responsible for this entity",
-      "type": ["null, "string"],
+      "type": ["null", "string"],
 			"default": null
     },
 		{
@@ -31,7 +31,7 @@
     },
 		{
       "name": "tags",
-      "doc": "Map of all tags associated with this POI",
+      "doc": "Map of all tags associated with this post",
       "type": [
         "null",
         {
@@ -79,7 +79,7 @@
 						{
 							"name": "subject",
 							"doc": "Subject or title of this post",
-							"type": ["null, "string"],
+							"type": ["null", "string"],
 							"default": null
 						},
 						{
@@ -131,7 +131,7 @@
 								}
 							],
 							"default": null
-						},
+						}
 					]
 				}
 			],

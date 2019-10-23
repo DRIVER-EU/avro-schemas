@@ -31,9 +31,9 @@
 					"namespace": "eu.driver.model.sim.request",
 					"type": "enum",
 					"symbols": ["Approved", "Rejected"]
-				},
+				}
 			],
-      "default: null
+      "default": null
     }
   ]
 }

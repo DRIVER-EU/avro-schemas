@@ -25,13 +25,13 @@
     {
       "name": "owner",
       "doc": "Identifier of the simulator currently responsible for this entity",
-      "type": ["null, "string"],
+      "type": ["null", "string"],
 			"default": null
     },
 		{
       "name": "visibleForParticipant",
       "doc": "Indication whether or not this item is visible for all participants",
-      "type": ["null, "boolean"],
+      "type": ["null", "boolean"],
 			"default": null
     },
     {
