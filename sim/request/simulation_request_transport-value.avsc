@@ -18,12 +18,12 @@
     },
     {
       "name": "entity",
-      "doc": "Globally unique identifier for the entity that should transport",
+      "doc": "Globally unique identifier for the entity (e.g. item, area, POI) that should transport",
       "type": "string"
     },
     {
       "name": "destination",
-      "doc": "Globally unique identifier for the entity (could be item, POI, etc.) that should be the destination",
+      "doc": "Globally unique identifier for the entity (e.g. item, area, POI) that should be the destination",
       "type": "string"
     },
     {
