@@ -278,6 +278,18 @@
       "doc": "Reference to the unit connection entity (represented by its GUID) this item is part of",
       "type": ["null", "string"],
       "default": null
+    },
+    {
+      "name": "properties",
+      "doc": "Additional properties of the entity.",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
     }
   ]
 }
