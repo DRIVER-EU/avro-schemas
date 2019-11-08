@@ -7,8 +7,8 @@
   "type": "record",
   "fields": [
     {
-      "name": "guid",
-      "doc": "Globally unique identifier for this entity",
+      "name": "id",
+      "doc": "Unique identifier for this entity",
       "type": "string"
     },
     {
@@ -157,7 +157,7 @@
     },
     {
       "name": "entities",
-      "doc": "List of physical entities (represented by their GUIDs) that are currently at the POI",
+      "doc": "List of physical entities (represented by their IDs) that are currently at the POI",
       "type": [
         "null",
         {

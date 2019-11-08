@@ -7,8 +7,8 @@
   "type": "record",
   "fields": [
     {
-      "name": "guid",
-      "doc": "Globally unique identifier for this entity",
+      "name": "id",
+      "doc": "Unique identifier for this entity",
       "type": "string"
     },
 		{

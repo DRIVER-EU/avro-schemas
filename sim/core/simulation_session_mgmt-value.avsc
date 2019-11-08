@@ -6,8 +6,8 @@
 	"type": "record",
   "fields": [
     {
-      "name": "guid",
-      "doc": "Globally unique identifier for the session",
+      "name": "id",
+      "doc": "Unique identifier for the session",
       "type": "string"
     },
     {
