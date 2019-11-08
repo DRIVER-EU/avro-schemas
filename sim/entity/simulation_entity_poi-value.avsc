@@ -48,7 +48,7 @@
     },
     {
       "name": "location",
-      "doc": "Location of this item",
+      "doc": "Location of this poi",
       "type": {
         "name": "Location",
         "namespace": "eu.driver.model.sim.geo",
@@ -76,7 +76,7 @@
     },
 		{
       "name": "orientation",
-      "doc": "Orientation of this item",
+      "doc": "Orientation of this poi",
       "type": [
 				"null",
 				{
