@@ -1,0 +1,68 @@
+{
+	"_comment": "",
+  "name": "RequestDomain",
+  "namespace": "eu.driver.model.sim.request",
+  "doc": "Request for focusing the recipient simulators on a given domain, only sending out updates that happen inside this domain. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "Unique identifier for this request",
+      "type": "string"
+    },
+    {
+      "name": "applicant",
+      "doc": "Identifier of the simulator sending the request",
+      "type": "string"
+    },
+    {
+      "name": "domain",
+      "doc": "List of locations that describes the domain/area to focus on",
+      "type": {
+				"type": "array",
+				"items": {
+					"name": "location",
+					"doc": "Location of this item",
+					"type": {
+						"name": "Location",
+						"namespace": "eu.driver.model.sim.geo",
+						"doc": "WGS84-based standard representation of a location on earth",
+						"type": "record",
+						"fields": [
+							{
+								"name": "latitude",
+								"doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
+								"type": "double"
+							},
+							{
+								"name": "longitude",
+								"doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
+								"type": "double"
+							},
+							{
+								"name": "altitude",
+								"doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
+								"type": ["null", "double"],
+								"default": null
+							}
+						]
+					}
+				}
+      }
+    },
+		{
+      "name": "response",
+			"doc": "Response of the simulator that received the request",
+      "type": [
+				"null",
+				{
+					"name": "DomainResponse",
+					"namespace": "eu.driver.model.sim.request",
+					"type": "enum",
+					"symbols": ["Queued", "Approved", "Rejected"]
+				}
+			],
+      "default": null
+    }
+  ]
+}
