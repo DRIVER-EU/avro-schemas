@@ -1,0 +1,142 @@
+{
+	"_comment": "",
+  "name": "SyncItemMap",
+  "namespace": "eu.driver.model.sim.sync",
+  "doc": "Common Simulation Space Synchronisation Item Map, containing a map |item id, SyncItem| for fast synchronisation of item properties. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+		{
+      "name": "syncId",
+      "doc": "Identifier of the synchronisation this message belongs to",
+      "type": "string"
+    },
+		{
+			"name": "syncMap",
+			"doc": "The map |item id, SyncItem| to synchronise",
+			"type": {
+				"type": "map",
+				"values": {
+					"name": "SyncItem",
+					"namespace": "eu.driver.model.sim.sync",
+					"doc": "Item information specifically for synchronisation purposes",
+					"type": "record",
+					"fields": [
+						{
+							"name": "name",
+							"doc": "Name of this entity",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "tags",
+							"doc": "Map of all tags associated with this entity",
+							"type": [
+								"null",
+								{
+									"type": "map",
+									"values": "string"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "location",
+							"doc": "Location of this item",
+							"type": [
+								"null",
+								{
+									"name": "Location",
+									"namespace": "eu.driver.model.sim.geo",
+									"doc": "WGS84-based standard representation of a location on earth",
+									"type": "record",
+									"fields": [
+										{
+											"name": "latitude",
+											"doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
+											"type": "double"
+										},
+										{
+											"name": "longitude",
+											"doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
+											"type": "double"
+										},
+										{
+											"name": "altitude",
+											"doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
+											"type": ["null", "double"],
+											"default": null
+										}
+									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "orientation",
+							"doc": "Orientation of this item",
+							"type": [
+								"null",
+								{
+									"name": "Orientation",
+									"namespace": "eu.driver.model.sim.geo",
+									"doc":
+										"WGS84/Aviation-based representation of an orientation on earth - Right-handed item-specific reference system, with in base-setting heading/yaw-axis pointing up (away from the centre of the earth), pitch-axis pointing to the right, roll/bank-axis pointing forward",
+									"type": "record",
+									"fields": [
+										{
+											"name": "yaw",
+											"doc": "Yaw or heading in decimal degrees [0, 360) - 0 is pointing towards geographic north - yaw of 90 is EAST, yaw of 270 is WEST",
+											"type": "double"
+										},
+										{
+											"name": "pitch",
+											"doc": "Pitch in decimal degrees [-90, 90] - 0 is perpendicular to line [origin of item - centre of WGS84-based ellipsoid] - pitch of +45 is 45 degrees pointing upwards, -45 is 45 degrees pointing downwards",
+											"type": "double"
+										},
+										{
+											"name": "roll",
+											"doc": "Roll or bank in decimal degrees (-180, 180] - 0 is perpendicular to line [origin of item - centre of WGS84-based ellipsoid] - bank of +45 is 45 degrees roll to the right, -45 is 45 degrees roll to the left",
+											"type": "double"
+										}
+									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "velocity",
+							"doc": "Movement vector of the item, including the magnitude",
+							"type": [
+								"null",
+								{
+									"name": "Velocity",
+									"namespace": "eu.driver.model.sim.geo",
+									"doc": "WGS84/Aviation-based representation of a velocity vector. Right-handed item-specific reference system, with in base-setting heading/yaw-axis pointing down (to the centre of the earth), pitch-axis pointing to the right, roll/bank-axis pointing forward",
+									"type": "record",
+									"fields": [
+										{
+											"name": "yaw",
+											"doc": "Yaw or heading in decimal degrees [0, 360) - 0 is pointing towards geographic north - yaw of 90 is EAST, yaw of 270 is WEST",
+											"type": "double"
+										},
+										{
+											"name": "pitch",
+											"doc": "Pitch in decimal degrees (-90, 90] - 0 is perpendicular to line [origin of item - centre of WGS84-based ellipsoid] - pitch of +45 is 45 degrees pointing upwards, -45 is 45 degrees pointing downwards",
+											"type": "double"
+										},
+										{
+											"name": "magnitude",
+											"doc": "Velocity in meter per second [0, inf) - 0 is standing still relative to the earth",
+											"type": "double"
+										}
+									]
+								}
+							],
+							"default": null
+						}
+					]
+				}
+			}
+		}
+	]
+}
