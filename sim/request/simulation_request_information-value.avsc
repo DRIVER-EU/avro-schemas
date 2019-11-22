@@ -1,9 +1,8 @@
 {
-	"_comment": "TODO: Include CWA in documentation? Include a response?",
+	"_comment": "",
   "name": "RequestInformation",
   "namespace": "eu.driver.model.sim.request",
-  "doc":
-    "Request for information of an entity. *Copyright (C) 2017-2018 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of DRIVER+ WP923 Test-bed infrastructure project. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "Request for information of an entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
@@ -18,7 +17,7 @@
     },
     {
       "name": "entity",
-      "doc": "Globally unique identifier for the entity that is the subject of the information request",
+      "doc": "Unique identifier for the entity that is the subject of the information request",
       "type": "string"
     }
   ]
