@@ -2,7 +2,7 @@
 	"_comment": "TODO: Include type property into tags?",
   "name": "Unit",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "A unit is a specific entity representing a group of items that together constitute a whole. An example of a unit would be an ambulance unit, consisting of one ambulance vehicle and two paramedics.. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A unit is a specific entity representing a group of items that together constitute a whole. An example of a unit would be an ambulance unit, consisting of one ambulance vehicle and two paramedics.. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {

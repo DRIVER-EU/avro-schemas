@@ -2,7 +2,7 @@
 	"_comment": "",
   "name": "SessionManagement",
   "namespace": "eu.driver.model.sim.config",
-  "doc": "The session management message is used for informing connected applications on session details and primarily the current state of the session. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "The session management message is used for informing connected applications on session details and primarily the current state of the session. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
 	"type": "record",
   "fields": [
     {

@@ -2,7 +2,7 @@
 	"_comment": "TODO: Include type property into tags? Do we want to include children (items that belong to this main time) to facilitate items inside items?",
   "name": "Item",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "An item is a specific entity that is bound to one position in the world. It should represent a tangible object, person or vehicle. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "An item is a specific entity that is bound to one position in the world. It should represent a tangible object, person or vehicle. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {

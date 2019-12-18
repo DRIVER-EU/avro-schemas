@@ -2,7 +2,7 @@
 	"_comment": "TODO: Include type property into tags?",
   "name": "Line",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "A line is a specific entity that represents a line in the CSS. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A line is a specific entity that represents a line in the CSS. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {

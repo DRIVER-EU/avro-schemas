@@ -2,7 +2,7 @@
 	"_comment": "",
   "name": "AggregationUnit",
   "namespace": "eu.driver.model.sim.support",
-  "doc": "A support message for sending aggregated unit updates, containing a map |unit id, AggrUnit| for fast synchronisation of unit properties. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A support message for sending aggregated unit updates, containing a map |unit id, AggrUnit| for fast synchronisation of unit properties. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
 		{
