@@ -1,0 +1,26 @@
+{
+  "name": "EntityDeleted",
+  "namespace": "eu.driver.model.sim.support",
+  "doc": "A support message to notify a deletion of an entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "Unique identifier of the entity",
+      "type": "string"
+    },
+    {
+      "name": "owner",
+      "doc": "Optional unique identifier of the connected application owning the entity",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    }
+  ]
+}

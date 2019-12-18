@@ -1,0 +1,174 @@
+{
+	"_comment": "",
+  "name": "AggregationPOI",
+  "namespace": "eu.driver.model.sim.support",
+  "doc": "A support message for sending aggregated point of interest updates, containing a map |poi id, AggrPOI| for fast synchronisation of point of interest properties. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+		{
+      "name": "id",
+      "doc": "Unique identifier of the aggregation update",
+      "type": "string"
+    },
+		{
+			"name": "syncMap",
+			"doc": "Map containing key-value pairs, all with unique keys: key – unique identifier of the point-of-interest; value – specific aggregated point-of-interest properties",
+			"type": {
+				"type": "map",
+				"values": {
+					"name": "AggrPOI",
+					"namespace": "eu.driver.model.sim.support.aggr",
+					"doc": "POI aggregation properties",
+					"type": "record",
+					"fields": [
+						{
+							"name": "name",
+							"doc": "Optional name of the point-of-interest",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "tags",
+							"doc": "Optional map containing point-of-interest specific information: key – unique name of the specific property; value – value of that property",
+							"type": [
+								"null",
+								{
+									"type": "map",
+									"values": "string"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "location",
+							"doc": "Optional location of the point-of-interest",
+							"type": [
+								"null",
+								{
+									"name": "Location",
+									"namespace": "eu.driver.model.sim.support",
+									"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
+									"type": "record",
+									"fields": [
+										{
+											"name": "latitude",
+											"doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
+											"type": "double"
+										},
+										{
+											"name": "longitude",
+											"doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
+											"type": "double"
+										},
+										{
+											"name": "altitude",
+											"doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
+											"type": ["null", "double"],
+											"default": null
+										}
+									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "orientation",
+							"doc": "Optional orientation of the point-of-interest",
+							"type": [
+								"null",
+								{
+									"name": "Orientation",
+									"namespace": "eu.driver.model.sim.support",
+									"doc": "An orientation is defined in the aviation axes conventions representation. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing up (away from the centre of the WGS84-based ellipsoid), its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
+									"type": "record",
+									"fields": [
+										{
+											"name": "yaw",
+											"doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
+											"type": "double"
+										},
+										{
+											"name": "pitch",
+											"doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
+											"type": "double"
+										},
+										{
+											"name": "roll",
+											"doc": "In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left",
+											"type": "double"
+										}
+									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "address",
+							"doc": "Optional address information of the point-of-interest",
+							"type": [
+								"null",
+								{
+									"name": "Address",
+									"namespace": "eu.driver.model.sim.support",
+									"type": "record",
+									"fields": [
+										{
+											"name": "street",
+											"doc": "Optional street name including house number",
+											"type": ["null", "string"],
+											"default": null
+										},
+										{
+											"name": "postalCode",
+											"doc": "Optional postal code",
+											"type": ["null", "string"],
+											"default": null
+										},
+										{
+											"name": "city",
+											"doc": "Optional name of the city",
+											"type": ["null", "string"],
+											"default": null
+										},
+										{
+											"name": "state",
+											"doc": "Optional name of the state or province",
+											"type": ["null", "string"],
+											"default": null
+										},
+										{
+											"name": "country",
+											"doc": "Optional name of the country",
+											"type": ["null", "string"],
+											"default": null
+										}
+									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "entities",
+							"doc": "Optional list of entity identifiers that are at the point-of-interest",
+							"type": [
+								"null",
+								{
+									"type": "array",
+									"items": "string"
+								}
+							],
+							"default": null
+						}
+					]
+				}
+			}
+		},
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the aggregated update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    }
+	]
+}

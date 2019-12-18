@@ -1,18 +1,18 @@
 {
-	"_comment": "TODO: Include type property into tags? Do we want to include children (items that belong to this main time) to facilitate items inside items?",
-  "name": "Item",
+	"_comment": "TODO: Include type property into tags? Do we need entities property?",
+  "name": "PointOfInterest",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "An item is a specific entity that is bound to one position in the world. It should represent a tangible object, person or vehicle. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A point of interest is a specific entity that represents a point location connected applications find useful or interesting. Points of interest should represent specific places or buildings on earth. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier of the item",
+      "doc": "Unique identifier of the point-of-interest",
       "type": "string"
     },
 		{
       "name": "location",
-      "doc": "Location of the item",
+      "doc": "Location of the point-of-interest",
       "type": {
         "name": "Location",
         "namespace": "eu.driver.model.sim.support",
@@ -40,19 +40,19 @@
     },
     {
       "name": "name",
-      "doc": "Optional name of the item",
+      "doc": "Optional name of the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
 		{
       "name": "type",
-      "doc": "Optional type of the item",
+      "doc": "Optional type of the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
     {
       "name": "owner",
-      "doc": "Optional unique identifier of the connected application owning the item",
+      "doc": "Optional unique identifier of the connected application owning the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
@@ -65,7 +65,7 @@
     },
     {
       "name": "tags",
-      "doc": "Optional map containing item specific information: key – unique name of the specific property; value – value of that property",
+      "doc": "Optional map containing point-of-interest specific information: key – unique name of the specific property; value – value of that property",
       "type": [
         "null",
         {
@@ -75,9 +75,9 @@
       ],
       "default": null
     },
-    {
+		{
       "name": "orientation",
-      "doc": "Optional orientation of the item",
+      "doc": "Optional orientation of the point-of-interest",
       "type": [
 				"null",
 				{
@@ -107,35 +107,61 @@
 			"default": null
     },
     {
-      "name": "velocity",
-      "doc": "Optional velocity of the item",
+      "name": "address",
+      "doc": "Optional address information of the point-of-interest",
       "type": [
 				"null",
 				{
-					"name": "Velocity",
+					"name": "Address",
 					"namespace": "eu.driver.model.sim.support",
-					"doc": "A velocity is defined in the aviation axes conventions representation of a velocity vector. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing up (away from the centre of the WGS84-based ellipsoid), its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
 					"type": "record",
 					"fields": [
 						{
-							"name": "yaw",
-							"doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
-							"type": "double"
+							"name": "street",
+							"doc": "Optional street name including house number",
+							"type": ["null", "string"],
+							"default": null
 						},
 						{
-							"name": "pitch",
-							"doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
-							"type": "double"
+							"name": "postalCode",
+							"doc": "Optional postal code",
+							"type": ["null", "string"],
+							"default": null
 						},
 						{
-							"name": "magnitude",
-							"doc": "In meter per seconds, ranging from [0, infinity) where 0 is standing still relative to the earth’s rotation",
-							"type": "double"
+							"name": "city",
+							"doc": "Optional name of the city",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "state",
+							"doc": "Optional name of the state or province",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "country",
+							"doc": "Optional name of the country",
+							"type": ["null", "string"],
+							"default": null
 						}
 					]
 				}
 			],
 			"default": null
+    },
+    {
+      "name": "entities",
+      "doc": "Optional list of entity identifiers that are at the point-of-interest",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": "string"
+        }
+      ],
+      "default": null
     }
   ]
 }

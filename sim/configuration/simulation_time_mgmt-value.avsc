@@ -1,0 +1,96 @@
+{
+	"_comment": "",
+  "name": "TimeManagement",
+  "namespace": "eu.driver.model.sim.config",
+  "doc": "The time management message can be used for informing connected applications on time progression and changes. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+	"type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "Unique identifier of the session",
+      "type": "string"
+    },
+		{
+      "name": "state",
+			"doc": "State the time is currently in",
+      "type": {
+        "name": "TimeState",
+        "namespace": "eu.driver.model.sim.config",
+        "type": "enum",
+				"doc": "Init - preparing for the actual start of the simulation time; Start – starting the simulation time; Pause –pausing the simulation time; Jump – initiating a simulation time jump, further specified in the simulationTime property; SpeedChange – initiating a simulation speed change, further specified in the simulationSpeed property; Resume – resuming a paused simulation time; Stop - stopping the simulation time",
+        "symbols": ["Start", "Pause", "Jump", "SpeedChange", "Resume", "Stop"]
+      }
+    },
+    {
+      "name": "name",
+      "doc": "Optional name of the session",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "tags",
+      "doc": "Optional map containing session time specific information: key – unique name of the specific property; value – value of that property",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    },
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was or needs to be performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    },
+		{
+      "name": "simulationTime",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    },
+		{
+      "name": "simulationSpeed",
+			"doc": "Optional speed factor this session wants to run a simulation. The range of this speed factor is [0, infinity)",
+      "type": ["null", "float"],
+      "default": null
+    },
+		{
+      "name": "response",
+			"doc": "Optional response of a connected application",
+      "type": [
+				"null",
+				{
+					"name": "Response",
+					"namespace": "eu.driver.model.sim.support",
+					"type": "record",
+					"fields": [
+						{
+							"name": "code",
+							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
+							"type": "int"
+						},
+						{
+							"name": "message",
+							"doc": "Optional information accompanying the response code",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "timestamp",
+							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
+							"type": ["null", "long"],
+							"logicalType": "timestamp-millis",
+							"default": null
+						}
+					]
+				}
+			],
+      "default": null
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "RequestCancelled",
+  "namespace": "eu.driver.model.sim",
+  "doc": "A support message to notify a cancellation of a request. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "Unique identifier of the request",
+      "type": "string"
+    },
+    {
+      "name": "applicant",
+      "doc": "Unique identifier of the connected appliaction sending the request",
+      "type": "string"
+    }
+  ]
+}
