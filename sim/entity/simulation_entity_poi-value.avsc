@@ -1,36 +1,71 @@
 {
-	"_comment": "TODO: Do we need entities property? Why poiType?",
+	"_comment": "TODO: Include type property into tags? Do we need entities property?",
   "name": "PointOfInterest",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "Common Simulation Space Location, representing a point of interest (building or location) inside the simulation world. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A point of interest is a specific entity that represents a point location connected applications find useful or interesting. Points of interest should represent specific places or buildings on earth. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this entity",
+      "doc": "Unique identifier of the point-of-interest",
       "type": "string"
+    },
+		{
+      "name": "location",
+      "doc": "Location of the point-of-interest",
+      "type": {
+        "name": "Location",
+        "namespace": "eu.driver.model.sim.support",
+        "doc": "A location is defined as a WGS84-based standard representation of a location on earth",
+        "type": "record",
+        "fields": [
+          {
+            "name": "latitude",
+            "doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
+            "type": "double"
+          },
+          {
+            "name": "longitude",
+            "doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
+            "type": "double"
+          },
+          {
+            "name": "altitude",
+            "doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
+            "type": ["null", "double"],
+            "default": null
+          }
+        ]
+      }
     },
     {
       "name": "name",
-      "doc": "Name of this entity",
+      "doc": "Optional name of the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
 		{
-      "name": "poiType",
-      "doc": "Concrete type of this POI",
+      "name": "type",
+      "doc": "Optional type of the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
     {
       "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this entity",
+      "doc": "Optional unique identifier of the connected application owning the point-of-interest",
       "type": ["null", "string"],
 			"default": null
     },
 		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    },
+    {
       "name": "tags",
-      "doc": "Map of all tags associated with this entity",
+      "doc": "Optional map containing point-of-interest specific information: key – unique name of the specific property; value – value of that property",
       "type": [
         "null",
         {
@@ -40,58 +75,30 @@
       ],
       "default": null
     },
-    {
-      "name": "location",
-      "doc": "Location of this poi",
-      "type": {
-        "name": "Location",
-        "namespace": "eu.driver.model.sim.geo",
-        "doc": "WGS84-based standard representation of a location on earth",
-        "type": "record",
-        "fields": [
-          {
-            "name": "latitude",
-            "doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
-            "type": "double"
-          },
-          {
-            "name": "longitude",
-            "doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
-            "type": "double"
-          },
-          {
-            "name": "altitude",
-            "doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
-            "type": ["null", "double"],
-            "default": null
-          }
-        ]
-      }
-    },
 		{
       "name": "orientation",
-      "doc": "Orientation of this poi",
+      "doc": "Optional orientation of the point-of-interest",
       "type": [
 				"null",
 				{
 					"name": "Orientation",
-					"namespace": "eu.driver.model.sim.geo",
-					"doc": "WGS84/Aviation-based representation of an orientation on earth - Right-handed item-specific reference system, with in base-setting heading/yaw-axis pointing up (away from the centre of the earth), pitch-axis pointing to the right, roll/bank-axis pointing forward",
+					"namespace": "eu.driver.model.sim.support",
+					"doc": "An orientation is defined in the aviation axes conventions representation. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing up (away from the centre of the WGS84-based ellipsoid), its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
 					"type": "record",
 					"fields": [
 						{
 							"name": "yaw",
-							"doc": "Yaw or heading in decimal degrees [0, 360) - 0 is pointing towards geographic north - yaw of 90 is EAST, yaw of 270 is WEST",
+							"doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
 							"type": "double"
 						},
 						{
 							"name": "pitch",
-							"doc": "Pitch in decimal degrees [-90, 90] - 0 is perpendicular to line [origin of item - centre of WGS84-based ellipsoid] - pitch of +45 is 45 degrees pointing upwards, -45 is 45 degrees pointing downwards",
+							"doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
 							"type": "double"
 						},
 						{
 							"name": "roll",
-							"doc": "Roll or bank in decimal degrees (-180, 180] - 0 is perpendicular to line [origin of item - centre of WGS84-based ellipsoid] - bank of +45 is 45 degrees roll to the right, -45 is 45 degrees roll to the left",
+							"doc": "In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line between the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left",
 							"type": "double"
 						}
 					]
@@ -101,42 +108,41 @@
     },
     {
       "name": "address",
-      "doc": "Address information regarding the POI",
+      "doc": "Optional address information of the point-of-interest",
       "type": [
 				"null",
 				{
 					"name": "Address",
-					"namespace": "eu.driver.model.sim.geo",
-					"doc": "Postal address information",
+					"namespace": "eu.driver.model.sim.support",
 					"type": "record",
 					"fields": [
 						{
 							"name": "street",
-							"doc": "The street name",
+							"doc": "Optional street name including house number",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "postalCode",
-							"doc": "The postal code",
+							"doc": "Optional postal code",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "city",
-							"doc": "The city name",
+							"doc": "Optional name of the city",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "state",
-							"doc": "The state or province name",
+							"doc": "Optional name of the state or province",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "country",
-							"doc": "The country name",
+							"doc": "Optional name of the country",
 							"type": ["null", "string"],
 							"default": null
 						}
@@ -147,7 +153,7 @@
     },
     {
       "name": "entities",
-      "doc": "List of physical entities (represented by their identifiers) that are currently at the POI",
+      "doc": "Optional list of entity identifiers that are at the point-of-interest",
       "type": [
         "null",
         {

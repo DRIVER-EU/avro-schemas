@@ -29,7 +29,7 @@
     },
 		{
       "name": "tags",
-      "doc": "Optional map containing session specific information: key – unique name of the specific property; value – value of that property",
+      "doc": "Optional map containing session time specific information: key – unique name of the specific property; value – value of that property",
       "type": [
         "null",
         {

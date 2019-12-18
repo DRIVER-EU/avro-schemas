@@ -1,58 +1,44 @@
 {
-	"_comment": "TODO: Can header become null? Is medium (Mail, Chat, Twitter, Facebook, etc.) relevant as post info?",
+	"_comment": "TODO: Include type property into tags? Can header become null?",
   "name": "Post",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "Common Simulation Space Post, representing a media entity inside the simulation world (e.g. email, news article, facebook post, etc.). *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A post is a specific entity representing a piece of writing, image or other content published. Examples of posts can range from (e-)mail to social media posts. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this entity",
+      "doc": "Unique identifier of the post",
       "type": "string"
     },
 		{
-      "name": "postType",
-      "doc": "Concrete type of this post",
-      "type": ["null", "string"],
-			"default": null
-    },
-    {
-      "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this entity",
-      "type": ["null", "string"],
-			"default": null
-    },
-		{
-      "name": "tags",
-      "doc": "Map of all tags associated with this entity",
-      "type": [
-        "null",
-        {
-          "type": "map",
-          "values": "string"
-        }
-      ],
-      "default": null
+      "name": "body",
+      "doc": "Body text of the post",
+      "type": "string"
     },
 		{
       "name": "header",
-      "doc": "Header information of this post",
+      "doc": "Optional header information of the post",
       "type": [
 				"null",
 				{
 					"name": "Header",
-					"namespace": "eu.driver.model.sim.post",
-					"doc": "Header properties, based on standard email headers ",
+					"namespace": "eu.driver.model.sim.support",
 					"type": "record",
 					"fields": [
 						{
 							"name": "from",
-							"doc": "The sender of this post",
+							"doc": "Sender of the post",
 							"type": "string"
 						},
 						{
+							"name": "date",
+							"doc": "UNIX Epoch time in milliseconds marking the time the post was published/updated",
+							"type": "long",
+							"logicalType": "timestamp-millis"
+						},
+						{
 							"name": "to",
-							"doc": "Recipients of this post",
+							"doc": "Optional list of recipients of the post",
 							"type": [
 								"null",
 								{
@@ -63,26 +49,44 @@
 							"default": null
 						},
 						{
-							"name": "date",
-							"doc": "The fictive creation date and time of this post as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC",
-							"type": "long",
-							"logicalType": "timestamp-millis"
+							"name": "cc",
+							"doc": "Optional list of recipients in carbon copy of the post",
+							"type": [
+								"null",
+								{
+									"type": "array",
+									"items": "string"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "bcc",
+							"doc": "Optional list of recipients in blind carbon copy of the post",
+							"type": [
+								"null",
+								{
+									"type": "array",
+									"items": "string"
+								}
+							],
+							"default": null
 						},
 						{
 							"name": "subject",
-							"doc": "Subject or title of this post",
+							"doc": "Optional Subject of the post",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "intro",
-							"doc": "Introduction of this post",
+							"doc": "Optional introductory text of the post",
 							"type": ["null", "string"],
 							"default": null
 						},
 						{
 							"name": "attachments",
-							"doc": "Links to files attached to this post",
+							"doc": "Optional list of (references to) attachments inside the post",
 							"type": [
 								"null",
 								{
@@ -94,28 +98,28 @@
 						},
 						{
 							"name": "location",
-							"doc": "Location of this item",
+							"doc": "optional location the post is attached to",
 							"type": [
 								"null",
 								{
 									"name": "Location",
-									"namespace": "eu.driver.model.sim.geo",
-									"doc": "WGS84-based standard representation of a location on earth",
+									"namespace": "eu.driver.model.sim.support",
+									"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
 									"type": "record",
 									"fields": [
 										{
 											"name": "latitude",
-											"doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
+											"doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
 											"type": "double"
 										},
 										{
 											"name": "longitude",
-											"doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
+											"doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
 											"type": "double"
 										},
 										{
 											"name": "altitude",
-											"doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
+											"doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
 											"type": ["null", "double"],
 											"default": null
 										}
@@ -130,19 +134,51 @@
       "default": null
     },
 		{
-      "name": "body",
-      "doc": "The body text of this post",
-      "type": "string"
+      "name": "name",
+      "doc": "Optional name of the post",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "type",
+      "doc": "Optional type of the post",
+      "type": ["null", "string"],
+			"default": null
+    },
+    {
+      "name": "owner",
+      "doc": "Optional unique identifier of the connected application owning the post",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    },
+    {
+      "name": "tags",
+      "doc": "Optional map containing post specific information: key – unique name of the specific property; value – value of that property",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
     },
 		{
       "name": "mediumType",
-      "doc": "Concrete type of the medium this post was placed on/in",
+      "doc": "Optional type of the medium the post is published on",
       "type": ["null", "string"],
 			"default": null
     },
     {
       "name": "mediumName",
-      "doc": "Name of the medium this post was placed on/in",
+      "doc": "Optional name of the medium the post is published on",
       "type": ["null", "string"],
 			"default": null
     }

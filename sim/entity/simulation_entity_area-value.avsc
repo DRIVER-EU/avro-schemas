@@ -1,36 +1,78 @@
 {
-	"_comment": "TODO: Why areaType? Include areaType property into tags?",
+	"_comment": "TODO: Include type property into tags?",
   "name": "Area",
   "namespace": "eu.driver.model.sim.entity",
-  "doc": "Common Simulation Space Area, representing an area inside the simulated world. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "An area is a specific entity that represents an area or region in the CSS. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this entity",
+      "doc": "Unique identifier of the area",
       "type": "string"
+    },
+		{
+      "name": "boundary",
+      "doc": "List of locations, creating an edge between every consecutive location in the list. An additional edge is created between the last location in the list and the first location in the list, closing of the area. The smallest shape created by this boundary defines the area",
+      "type": {
+				"type": "array",
+				"items": {
+					"name": "location",
+					"doc": "Location marking a point on the boundary",
+					"type": {
+						"name": "Location",
+						"namespace": "eu.driver.model.sim.support",
+						"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
+						"type": "record",
+						"fields": [
+							{
+								"name": "latitude",
+								"doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
+								"type": "double"
+							},
+							{
+								"name": "longitude",
+								"doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
+								"type": "double"
+							},
+							{
+								"name": "altitude",
+								"doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
+								"type": ["null", "double"],
+								"default": null
+							}
+						]
+					}
+				}
+			}
     },
     {
       "name": "name",
-      "doc": "Name of this entity",
+      "doc": "Optional name of the area",
       "type": ["null", "string"],
 			"default": null
     },
 		{
-      "name": "areaType",
-      "doc": "Concrete type of this area",
+      "name": "type",
+      "doc": "Optional type of the area",
       "type": ["null", "string"],
 			"default": null
     },
     {
       "name": "owner",
-      "doc": "Identifier of the simulator currently responsible for this entity",
+      "doc": "Optional unique identifier of the connected application owning the area",
       "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
 			"default": null
     },
     {
       "name": "tags",
-      "doc": "Map of all tags associated with this entity",
+      "doc": "Optional map containing area specific information: key – unique name of the specific property; value – value of that property",
       "type": [
         "null",
         {
@@ -39,41 +81,6 @@
         }
       ],
       "default": null
-    },
-    {
-      "name": "boundary",
-      "doc": "List of locations that describes the boundary of this area",
-      "type": {
-				"type": "array",
-				"items": {
-					"name": "location",
-					"doc": "Location of this point marking a boundary",
-					"type": {
-						"name": "Location",
-						"namespace": "eu.driver.model.sim.geo",
-						"doc": "WGS84-based standard representation of a location on earth",
-						"type": "record",
-						"fields": [
-							{
-								"name": "latitude",
-								"doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
-								"type": "double"
-							},
-							{
-								"name": "longitude",
-								"doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
-								"type": "double"
-							},
-							{
-								"name": "altitude",
-								"doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
-								"type": ["null", "double"],
-								"default": null
-							}
-						]
-					}
-				}
-			}
     }
   ]
 }
