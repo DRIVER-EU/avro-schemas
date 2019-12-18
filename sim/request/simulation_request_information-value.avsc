@@ -2,23 +2,56 @@
 	"_comment": "",
   "name": "RequestInformation",
   "namespace": "eu.driver.model.sim.request",
-  "doc": "Request for information of an entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "An information request is a specific request for sending out an entity message containing the latest information of that entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this request",
+      "doc": "Unique identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Identifier of the simulator sending the request",
+      "doc": "Unique identifier of the connected application sending the request",
       "type": "string"
     },
     {
       "name": "entity",
-      "doc": "Unique identifier for the entity that is the subject of the information request",
+      "doc": "Unique identifier of the entity the applicant requests information about",
       "type": "string"
+    },
+		{
+      "name": "response",
+			"doc": "Optional response of a connected application receiving this request",
+      "type": [
+				"null",
+				{
+					"name": "Response",
+					"namespace": "eu.driver.model.sim.support",
+					"type": "record",
+					"fields": [
+						{
+							"name": "code",
+							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
+							"type": "int"
+						},
+						{
+							"name": "message",
+							"doc": "Optional information accompanying the response code",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "timestamp",
+							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
+							"type": ["null", "long"],
+							"logicalType": "timestamp-millis",
+							"default": null
+						}
+					]
+				}
+			],
+      "default": null
     }
   ]
 }

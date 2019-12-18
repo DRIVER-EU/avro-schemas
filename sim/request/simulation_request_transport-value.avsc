@@ -2,78 +2,97 @@
 	"_comment": "",
   "name": "RequestTransport",
   "namespace": "eu.driver.model.sim.request",
-  "doc": "Request for transporting an entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A transport request is a specific request for transporting or moving a given entity towards a given destination, possibly over a given route. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this request",
+      "doc": "Unique identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Identifier of the simulator sending the request",
+      "doc": "Unique identifier of the connected application sending the request",
       "type": "string"
     },
     {
       "name": "entity",
-      "doc": "Globally unique identifier for the entity (e.g. item, area, POI) that should transport",
+      "doc": "Unique identifier of the entity the applicant requests to be transported",
       "type": "string"
     },
     {
       "name": "destination",
-      "doc": "Globally unique identifier for the entity (e.g. item, area, POI) that should be the destination",
+      "doc": "Unique identifier of the entity the applicant requests the given entity to transport to",
       "type": "string"
     },
     {
       "name": "route",
-      "doc": "List of locations that describes the preferred route towards the destination",
+      "doc": "Optional list of locations, creating an edge between every consecutive location in the list defining the preferred route of the transport",
       "type": [
         "null",
         {
           "type": "array",
           "items": {
-            "name": "location",
-						"doc": "Location of this item",
+						"name": "location",
+						"doc": "Location marking a point on the route",
 						"type": {
 							"name": "Location",
-							"namespace": "eu.driver.model.sim.geo",
-							"doc": "WGS84-based standard representation of a location on earth",
+							"namespace": "eu.driver.model.sim.support",
+							"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
 							"type": "record",
 							"fields": [
 								{
 									"name": "latitude",
-									"doc": "Latitude in decimal degrees [-90, 90] - 0 is equator",
+									"doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
 									"type": "double"
 								},
 								{
 									"name": "longitude",
-									"doc": "Longitude in decimal degrees (-180, 180] - 0 is prime meridian",
+									"doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
 									"type": "double"
 								},
 								{
 									"name": "altitude",
-									"doc": "Altitude in meters - 0 is surface of WGS84-based ellipsoid",
+									"doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
 									"type": ["null", "double"],
 									"default": null
 								}
 							]
 						}
-          }
+					}
         }
       ],
       "default": null
     },
 		{
       "name": "response",
-			"doc": "Response of the simulator that received the request",
+			"doc": "Optional response of a connected application receiving this request",
       "type": [
 				"null",
 				{
-					"name": "TransportResponse",
-					"namespace": "eu.driver.model.sim.request",
-					"type": "enum",
-					"symbols": ["Queued", "Approved", "Rejected", "ApprovedButIgnoringRoute"]
+					"name": "Response",
+					"namespace": "eu.driver.model.sim.support",
+					"type": "record",
+					"fields": [
+						{
+							"name": "code",
+							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
+							"type": "int"
+						},
+						{
+							"name": "message",
+							"doc": "Optional information accompanying the response code",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "timestamp",
+							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
+							"type": ["null", "long"],
+							"logicalType": "timestamp-millis",
+							"default": null
+						}
+					]
 				}
 			],
       "default": null

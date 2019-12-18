@@ -2,22 +2,22 @@
 	"_comment": "",
   "name": "RequestOwnership",
   "namespace": "eu.driver.model.sim.request",
-  "doc": "Request for ownership of an entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "An ownership request is a specific request for becoming owner of a given entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is part of CEN Workshop Agreement - Building a Common Simulation Space. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier for this request",
+      "doc": "Unique identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Identifier of the simulator sending the request",
+      "doc": "Unique identifier of the connected application sending the request",
       "type": "string"
     },
     {
       "name": "entity",
-      "doc": "Unique identifier for the entity the applicant wants to own",
+      "doc": "Unique identifier of the entity the applicant requests ownership over",
       "type": "string"
     },
 		{
@@ -25,21 +25,41 @@
 			"doc": "The type of ownership that is requested",
       "type": {
 				"name": "OwnershipType",
-				"namespace": "eu.driver.model.sim.request",
+				"namespace": "eu.driver.model.sim.support",
 				"type": "enum",
+				"doc": "TakeOver – permanently taking over the entity; TakeOverAndReturn – taking over the entity to, upon completion of the operation, return it back to the current owner of the entity; Alter – performing a minor change to the entity, immediately returning ownership back to the current owner",
 				"symbols": ["TakeOver", "TakeOverAndReturn", "Alter"]
 			}
     },
 		{
       "name": "response",
-			"doc": "Response of the simulator that received the request",
+			"doc": "Optional response of a connected application receiving this request",
       "type": [
 				"null",
 				{
-					"name": "OwnershipResponse",
-					"namespace": "eu.driver.model.sim.request",
-					"type": "enum",
-					"symbols": ["Queued", "Approved", "Rejected", "Return"]
+					"name": "Response",
+					"namespace": "eu.driver.model.sim.support",
+					"type": "record",
+					"fields": [
+						{
+							"name": "code",
+							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
+							"type": "int"
+						},
+						{
+							"name": "message",
+							"doc": "Optional information accompanying the response code",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "timestamp",
+							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
+							"type": ["null", "long"],
+							"logicalType": "timestamp-millis",
+							"default": null
+						}
+					]
 				}
 			],
       "default": null
