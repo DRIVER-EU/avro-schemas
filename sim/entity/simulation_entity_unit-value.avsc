@@ -201,7 +201,7 @@
 			"type": [
 				"null",
 				{
-					"name": "Location",
+					"name": "UnitLocation",
 					"namespace": "eu.driver.model.sim.support",
 					"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
 					"type": "record",
