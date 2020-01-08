@@ -1,0 +1,27 @@
+{
+  "type" : "record",
+  "name" : "GeoFencingEvent",
+  "namespace" : "eu.driver.model.sim.geofencing",
+  "doc" : "Notification from GeoFencer when a rule matches the defined condition.",
+  "fields" : [ {
+    "name" : "RuleId",
+    "type" : "string",
+    "doc" : "The ID assigned in the geo fencer definition (GeoJSON)"
+  }, {
+    "name" : "SimItemEntityId",
+    "type" : "string",
+    "doc" : "The GUID of the simulation entity for which the rule triggered."
+  }, {
+    "name" : "Hit",
+    "type" : "boolean",
+    "doc" : "The first time Hit is always true (the rule condition was matched), when false the rule condition changed from true to false."
+  }, {
+    "name" : "Initial",
+    "type" : "boolean",
+    "doc" : "The rule was evaluated for the first time."
+  } , {
+    "name" : "Timestamp",
+    "type": "string",
+    "doc" : "Timestamp when rule is created."
+  }]
+}
