@@ -16,6 +16,16 @@
       "doc": "The name of the Topic to be created by the admin tool."
     },
     {
+      "name": "standard",
+      "type": "string",
+      "doc": "The standard (schema) that should be registered for this topic."
+    },
+    {
+      "name": "version",
+      "type": "string",
+      "doc": "The version of the standard (schema) that should be registered for this topic."
+    },
+    {
       "name": "subscribeAllowed",
       "type": [
         {
