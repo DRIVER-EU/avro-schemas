@@ -1,5 +1,5 @@
 {
-	"_comment": "TODO: Include type property into tags?",
+	"_comment": "",
   "name": "Area",
   "namespace": "eu.driver.model.sim.entity",
   "doc": "An area is a specific entity that represents an area or region in the CSS. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",

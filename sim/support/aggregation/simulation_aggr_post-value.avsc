@@ -11,7 +11,7 @@
       "type": "string"
     },
 		{
-			"name": "syncMap",
+			"name": "map",
 			"doc": "Map containing key-value pairs, all with unique keys: key – unique identifier of the post; value – specific aggregated post properties",
 			"type": {
 				"type": "map",
@@ -161,18 +161,6 @@
 									"values": "string"
 								}
 							],
-							"default": null
-						},
-						{
-							"name": "mediumType",
-							"doc": "Optional type of the medium the post is published on",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "mediumName",
-							"doc": "Optional name of the medium the post is published on",
-							"type": ["null", "string"],
 							"default": null
 						}
 					]

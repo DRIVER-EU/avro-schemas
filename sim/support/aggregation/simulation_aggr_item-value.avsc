@@ -11,7 +11,7 @@
       "type": "string"
     },
 		{
-			"name": "syncMap",
+			"name": "map",
 			"doc": "Map containing key-value pairs, all with unique keys: key – unique identifier of the item; value – specific aggregated item properties",
 			"type": {
 				"type": "map",
@@ -21,24 +21,6 @@
 					"doc": "Item aggregation properties",
 					"type": "record",
 					"fields": [
-						{
-							"name": "name",
-							"doc": "Optional name of the item",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "tags",
-							"doc": "Optional map containing item specific information: key – unique name of the specific property; value – value of that property",
-							"type": [
-								"null",
-								{
-									"type": "map",
-									"values": "string"
-								}
-							],
-							"default": null
-						},
 						{
 							"name": "location",
 							"doc": "Optional location of the item",
@@ -129,6 +111,24 @@
 											"type": "double"
 										}
 									]
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "name",
+							"doc": "Optional name of the item",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "tags",
+							"doc": "Optional map containing item specific information: key – unique name of the specific property; value – value of that property",
+							"type": [
+								"null",
+								{
+									"type": "map",
+									"values": "string"
 								}
 							],
 							"default": null

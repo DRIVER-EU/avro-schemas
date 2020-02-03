@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "Heartbeat",
+  "namespace": "eu.driver.model.sim.config",
+  "doc": "A heartbeat message is used to derive the state of responsiveness of a connected application",
+  "fields": [
+    {
+      "name": "id",
+			"doc": "Unique identifier of the connected application sending out this message",
+      "type": "string"
+    },
+    {
+      "name": "alive",
+			"doc": "UNIX Epoch time in milliseconds marking the time the connected application was last responding",
+      "type": "long",
+      "logicalType": "timestamp-millis"
+    },
+		{
+      "name": "origin",
+			"doc": "Optional identifier from which device or location this message was sent (e.g. IP address, machine name)",
+      "type": ["null", "string"],
+			"default": null
+    }
+  ]
+}

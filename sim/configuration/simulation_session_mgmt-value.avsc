@@ -17,8 +17,8 @@
         "name": "SessionState",
         "namespace": "eu.driver.model.sim.config",
         "type": "enum",
-				"doc": "Init – preparing for the actual start of a session, including loading in pre-computed data and configuring the connected application as was designed for this particular use of the CSS; Start – starting a session, primarily starting the simulation time; Stop – stopping a session, primarily stopping the simulation time; Close – completely closing down a session, possibly terminating or resetting the session",
-        "symbols": ["Init", "Start", "Stop", "Close"]
+				"doc": "Initialisation – preparing for the actual start of a session, including loading in pre-computed data and configuring the connected application as was designed for this particular use of the CSS; Start – starting a session, primarily starting the simulation time; Stop – stopping a session, primarily stopping the simulation time; Close – completely closing down a session, possibly terminating or resetting the session",
+        "symbols": ["Initialisation", "Start", "Stop", "Close"]
       }
     },
     {
@@ -52,39 +52,6 @@
       "type": ["null", "long"],
       "logicalType": "timestamp-millis",
 			"default": null
-    },
-		{
-      "name": "response",
-			"doc": "Optional response of a connected application",
-      "type": [
-				"null",
-				{
-					"name": "Response",
-					"namespace": "eu.driver.model.sim.support",
-					"type": "record",
-					"fields": [
-						{
-							"name": "code",
-							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
-							"type": "int"
-						},
-						{
-							"name": "message",
-							"doc": "Optional information accompanying the response code",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "timestamp",
-							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
-							"type": ["null", "long"],
-							"logicalType": "timestamp-millis",
-							"default": null
-						}
-					]
-				}
-			],
-      "default": null
     }
   ]
 }

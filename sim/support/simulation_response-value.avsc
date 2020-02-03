@@ -1,0 +1,36 @@
+{
+	"name": "Response",
+	"namespace": "eu.driver.model.sim.support",
+	"doc": "A response message is a support message for responding to a received common simulation space message. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+	"type": "record",
+	"fields": [
+		{
+      "name": "id",
+      "doc": "Unique identifier of the response",
+      "type": "string"
+    },
+		{
+      "name": "request",
+      "doc": "Unique identifier of the request this response is responding to",
+      "type": "string"
+    },
+		{
+			"name": "code",
+			"doc": "Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS",
+			"type": "int"
+		},
+		{
+			"name": "message",
+			"doc": "Optional information accompanying the response code",
+			"type": ["null", "string"],
+			"default": null
+		},
+		{
+			"name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
+			"type": ["null", "long"],
+			"logicalType": "timestamp-millis",
+			"default": null
+		}
+	]
+}

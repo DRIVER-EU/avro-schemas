@@ -11,7 +11,7 @@
       "type": "string"
     },
 		{
-			"name": "syncMap",
+			"name": "map",
 			"doc": "Map containing key-value pairs, all with unique keys: key – unique identifier of the point-of-interest; value – specific aggregated point-of-interest properties",
 			"type": {
 				"type": "map",
@@ -21,24 +21,6 @@
 					"doc": "POI aggregation properties",
 					"type": "record",
 					"fields": [
-						{
-							"name": "name",
-							"doc": "Optional name of the point-of-interest",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "tags",
-							"doc": "Optional map containing point-of-interest specific information: key – unique name of the specific property; value – value of that property",
-							"type": [
-								"null",
-								{
-									"type": "map",
-									"values": "string"
-								}
-							],
-							"default": null
-						},
 						{
 							"name": "location",
 							"doc": "Optional location of the point-of-interest",
@@ -103,6 +85,30 @@
 							"default": null
 						},
 						{
+							"name": "name",
+							"doc": "Optional name of the point-of-interest",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
+							"name": "tags",
+							"doc": "Optional map containing point-of-interest specific information: key – unique name of the specific property; value – value of that property",
+							"type": [
+								"null",
+								{
+									"type": "map",
+									"values": "string"
+								}
+							],
+							"default": null
+						},
+						{
+							"name": "description",
+							"doc": "Optional description of the point-of-interest",
+							"type": ["null", "string"],
+							"default": null
+						},
+						{
 							"name": "address",
 							"doc": "Optional address information of the point-of-interest",
 							"type": [
@@ -114,7 +120,19 @@
 									"fields": [
 										{
 											"name": "street",
-											"doc": "Optional street name including house number",
+											"doc": "Optional street name",
+											"type": ["null", "string"],
+											"default": null
+										},
+										{
+											"name": "houseNumber",
+											"doc": "Optional house number",
+											"type": ["null", "int"],
+											"default": null
+										},
+										{
+											"name": "houseLetter",
+											"doc": "Optional house letter",
 											"type": ["null", "string"],
 											"default": null
 										},
@@ -141,7 +159,19 @@
 											"doc": "Optional name of the country",
 											"type": ["null", "string"],
 											"default": null
-										}
+										},
+										{
+											"name": "tags",
+											"doc": "Optional map containing address specific information: key – unique name of the specific property; value – value of that property",
+											"type": [
+												"null",
+												{
+													"type": "map",
+													"values": "string"
+												}
+											],
+											"default": null
+										},
 									]
 								}
 							],

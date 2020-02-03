@@ -11,7 +11,7 @@
       "type": "string"
     },
 		{
-			"name": "syncMap",
+			"name": "map",
 			"doc": "Map containing key-value pairs, all with unique keys: key – unique identifier of the area; value – specific aggregated area properties",
 			"type": {
 				"type": "map",

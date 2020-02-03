@@ -1,5 +1,5 @@
 {
-	"_comment": "TODO: Include type property into tags? Do we want to include children (items that belong to this main time) to facilitate items inside items?",
+	"_comment": "",
   "name": "Item",
   "namespace": "eu.driver.model.sim.entity",
   "doc": "An item is a specific entity that is bound to one position in the world. It should represent a tangible object, person or vehicle. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
@@ -38,44 +38,7 @@
         ]
       }
     },
-    {
-      "name": "name",
-      "doc": "Optional name of the item",
-      "type": ["null", "string"],
-			"default": null
-    },
 		{
-      "name": "type",
-      "doc": "Optional type of the item",
-      "type": ["null", "string"],
-			"default": null
-    },
-    {
-      "name": "owner",
-      "doc": "Optional unique identifier of the connected application owning the item",
-      "type": ["null", "string"],
-			"default": null
-    },
-		{
-      "name": "timestamp",
-			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
-      "type": ["null", "long"],
-      "logicalType": "timestamp-millis",
-			"default": null
-    },
-    {
-      "name": "tags",
-      "doc": "Optional map containing item specific information: key – unique name of the specific property; value – value of that property",
-      "type": [
-        "null",
-        {
-          "type": "map",
-          "values": "string"
-        }
-      ],
-      "default": null
-    },
-    {
       "name": "orientation",
       "doc": "Optional orientation of the item",
       "type": [
@@ -136,6 +99,43 @@
 				}
 			],
 			"default": null
+    },
+    {
+      "name": "name",
+      "doc": "Optional name of the item",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "type",
+      "doc": "Optional type of the item",
+      "type": ["null", "string"],
+			"default": null
+    },
+    {
+      "name": "owner",
+      "doc": "Optional unique identifier of the connected application owning the item",
+      "type": ["null", "string"],
+			"default": null
+    },
+		{
+      "name": "timestamp",
+			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": ["null", "long"],
+      "logicalType": "timestamp-millis",
+			"default": null
+    },
+    {
+      "name": "tags",
+      "doc": "Optional map containing item specific information: key – unique name of the specific property; value – value of that property",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
     }
   ]
 }

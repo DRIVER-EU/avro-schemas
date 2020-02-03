@@ -61,36 +61,15 @@
       "default": null
     },
 		{
-      "name": "response",
-			"doc": "Optional response of a connected application receiving this request",
+      "name": "tags",
+      "doc": "Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property",
       "type": [
-				"null",
-				{
-					"name": "Response",
-					"namespace": "eu.driver.model.sim.support",
-					"type": "record",
-					"fields": [
-						{
-							"name": "code",
-							"doc": "Status code that best serves the response of the respondent, possibly similar to a HTTP response status code.",
-							"type": "int"
-						},
-						{
-							"name": "message",
-							"doc": "Optional information accompanying the response code",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "timestamp",
-							"doc": "Optional UNIX Epoch time in milliseconds marking the time the respond was given",
-							"type": ["null", "long"],
-							"logicalType": "timestamp-millis",
-							"default": null
-						}
-					]
-				}
-			],
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
       "default": null
     }
   ]

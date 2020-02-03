@@ -1,5 +1,5 @@
 {
-	"_comment": "TODO: Include type property into tags? Can header become null?",
+	"_comment": "",
   "name": "Post",
   "namespace": "eu.driver.model.sim.entity",
   "doc": "A post is a specific entity representing a piece of writing, image or other content published. Examples of posts can range from (e-)mail to social media posts. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
@@ -169,18 +169,6 @@
         }
       ],
       "default": null
-    },
-		{
-      "name": "mediumType",
-      "doc": "Optional type of the medium the post is published on",
-      "type": ["null", "string"],
-			"default": null
-    },
-    {
-      "name": "mediumName",
-      "doc": "Optional name of the medium the post is published on",
-      "type": ["null", "string"],
-			"default": null
     }
   ]
 }
