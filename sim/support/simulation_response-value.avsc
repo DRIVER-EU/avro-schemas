@@ -17,7 +17,8 @@
 		{
 			"name": "code",
 			"doc": "Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS",
-			"type": "int"
+			"type": ["null", "int"],
+			"default": null
 		},
 		{
 			"name": "message",
