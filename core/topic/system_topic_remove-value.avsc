@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "TopicRemove",
+  "namespace": "eu.driver.model.core",
+  "doc":
+    "The message send to the adapter(s) to inform them that the topic is going to be removed.",
+  "fields": [
+    {
+      "name": "id",
+      "doc": "Sender Client id",
+      "type": "string"
+    },
+    {
+      "name": "topicName",
+      "type": "string",
+      "doc": "The name of the Topic to be created by the admin tool."
+    }
+  ]
+}

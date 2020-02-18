@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "TopicRemoveRequest",
+  "namespace": "eu.driver.model.core",
+  "doc":
+    "The message send to the admin tool to request a topic to be removed.",
+  "fields": [
+    {
+      "name": "topicName",
+      "type": "string",
+      "doc": "The name of the Topic to be created by the admin tool."
+    }
+  ]
+}
