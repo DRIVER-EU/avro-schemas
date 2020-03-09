@@ -6,17 +6,17 @@
 	"fields": [
 		{
       "name": "id",
-      "doc": "Unique identifier of the response",
+      "doc": "Unique case-insensitive identifier of the response",
       "type": "string"
     },
 		{
       "name": "request",
-      "doc": "Unique identifier of the request this response is responding to",
+      "doc": "Unique case-insensitive identifier of the request this response is responding to",
       "type": "string"
     },
 		{
 			"name": "code",
-			"doc": "Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that CSS",
+			"doc": "Optional HTTP status code that best serves the response. Configuration guidelines might define new response codes that better fit the needs of that common simulation space",
 			"type": ["null", "int"],
 			"default": null
 		},

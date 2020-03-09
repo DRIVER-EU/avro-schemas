@@ -1,5 +1,4 @@
 {
-	"_comment": "",
   "name": "SessionManagement",
   "namespace": "eu.driver.model.sim.config",
   "doc": "The session management message is used for informing connected applications on session details and primarily the current state of the session. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
@@ -7,18 +6,18 @@
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier of the session",
+      "doc": "Unique case-insensitive identifier of the session",
       "type": "string"
     },
 		{
       "name": "state",
-			"doc": "state the session is currently in",
+			"doc": "State the session is currently in",
       "type": {
         "name": "SessionState",
         "namespace": "eu.driver.model.sim.config",
         "type": "enum",
-				"doc": "Initialisation – preparing for the actual start of a session, including loading in pre-computed data and configuring the connected application as was designed for this particular use of the CSS; Start – starting a session, primarily starting the simulation time; Stop – stopping a session, primarily stopping the simulation time; Close – completely closing down a session, possibly terminating or resetting the session",
-        "symbols": ["Initialisation", "Start", "Stop", "Close"]
+				"doc": "Initializing – preparing for the actual start of a session, including loading in pre-computed data and configuring the connected application as was designed for this particular use of the common simulation space; Started – the session has started and is running; Stopped – the session is stopped; Closed – the session is closed after all administrative tasks are done, so no more messages can be exchanged",
+        "symbols": ["Initializing", "Started", "Stopped", "Closed"]
       }
     },
     {

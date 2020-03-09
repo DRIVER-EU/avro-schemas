@@ -1,18 +1,17 @@
 {
-	"_comment": "",
   "name": "RequestRoute",
   "namespace": "eu.driver.model.sim.request",
-  "doc": "A route request is a specific request for calculating a transportation route between two given locations. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "A route request is a specific request for calculating a route from a starting location, passing through several waypoints. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier of the request",
+      "doc": "Unique case-insensitive identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Unique identifier of the connected application sending the request",
+      "doc": "Unique case-insensitive identifier of the connected application sending the request",
       "type": "string"
     },
     {
@@ -36,7 +35,7 @@
           },
           {
             "name": "altitude",
-            "doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid",
+            "doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates",
             "type": ["null", "double"],
             "default": null
           }
@@ -44,9 +43,23 @@
       }
     },
 		{
-      "name": "end",
-      "doc": "Location that marks the end of the route",
-      "type": "eu.driver.model.sim.support.Location"
+      "name": "waypoints",
+      "doc": "Ordered list of locations to visit consecutively",
+      "type": {
+				"type": "array",
+				"items": "eu.driver.model.sim.support.Location"
+			}
+    },
+		{
+      "name": "moveType",
+			"doc": "Optional type of movement to consider calculating the route",
+      "type": {
+        "name": "MoveType",
+        "namespace": "eu.driver.model.sim.support",
+        "type": "enum",
+				"doc": "Straight – move in a direct line to all waypoints without taking into account the terrain; CrossCountry – move directly to all waypoints without taking into account the roads; OnlyRoads – stay on the roads to get to the closest point to the waypoints that is still on a road; RoadsAndCrossCountry – move to the waypoints by taking into account the roads; it is allowed to go off the road",
+        "symbols": ["Straight", "CrossCountry", "OnlyRoads", "RoadsAndCrossCountry"]
+      }
     },
 		{
       "name": "tags",

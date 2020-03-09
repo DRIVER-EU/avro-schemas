@@ -1,5 +1,4 @@
 {
-	"_comment": "",
   "name": "RequestStartInject",
   "namespace": "eu.driver.model.sim.request",
   "doc": "A start inject request is a specific request for starting a pre-defined sequence of events defined at one or more connected applications. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
@@ -7,22 +6,22 @@
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier of the request",
+      "doc": "Unique case-insensitive identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Unique identifier of the connected application sending the request",
+      "doc": "Unique case-insensitive identifier of the connected application sending the request",
       "type": "string"
     },
     {
       "name": "inject",
-      "doc": "Name of the inject that is requested to start",
+      "doc": "Case-insensitive name of the inject that is requested to start",
       "type": "string"
     },
 		{
       "name": "tags",
-      "doc": "Optional map containing transport request specific information: key – unique name of the specific property; value – value of that property",
+      "doc": "Optional map containing start inject request specific information: key – unique name of the specific property; value – value of that property",
       "type": [
         "null",
         {

@@ -1,23 +1,22 @@
 {
-	"_comment": "",
   "name": "RequestOwnership",
   "namespace": "eu.driver.model.sim.request",
-  "doc": "An ownership request is a specific request for becoming owner of a given entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
+  "doc": "An ownership request is a specific request for becoming owner of a given simulation entity. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
   "type": "record",
   "fields": [
     {
       "name": "id",
-      "doc": "Unique identifier of the request",
+      "doc": "Unique case-insensitive identifier of the request",
       "type": "string"
     },
     {
       "name": "applicant",
-      "doc": "Unique identifier of the connected application sending the request",
+      "doc": "Unique case-insensitive identifier of the connected application sending the request",
       "type": "string"
     },
     {
       "name": "entity",
-      "doc": "Unique identifier of the entity the applicant requests ownership over",
+      "doc": "Unique case-insensitive identifier of the entity the applicant requests ownership over",
       "type": "string"
     },
 		{

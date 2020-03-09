@@ -1,5 +1,4 @@
 {
-	"_comment": "",
   "name": "TimeManagement",
   "namespace": "eu.driver.model.sim.config",
   "doc": "The time management message can be used for informing connected applications on time progression and changes. *Copyright (C) 2019-2020 XVR Simulation B.V., Delft, The Netherlands, Martijn Hendriks <hendriks @ xvrsim.com>. This file is licensed under the MIT license : https://github.com/DRIVER-EU/avro-schemas/blob/master/LICENSE*",
@@ -12,8 +11,8 @@
         "name": "TimeState",
         "namespace": "eu.driver.model.sim.config",
         "type": "enum",
-				"doc": "Initialisation - preparing for the actual start of the simulation time; Started – starting the simulation time; Paused –pausing the simulation time; Stopped - stopping the simulation time; Reset - resetting the simulation time",
-        "symbols": ["Initialisation", "Started", "Paused", "Stopped", "Reset"]
+				"doc": "Initialization – preparing for the actual start of the simulation time; Started – the simulation time is started; Paused – the simulation time is paused; Stopped – the simulation time is stopped; Reset – the simulation time is reset",
+        "symbols": ["Initialization", "Started", "Paused", "Stopped", "Reset"]
       }
     },
 		{
