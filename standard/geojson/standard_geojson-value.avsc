@@ -9,7 +9,9 @@
       "type": {
         "name": "FeatureCollectionType",
         "type": "enum",
-        "symbols": [ "FeatureCollection" ]
+        "symbols": [
+          "FeatureCollection"
+        ]
       },
       "default": "FeatureCollection"
     },
@@ -44,7 +46,9 @@
                 "type": {
                   "type": "enum",
                   "name": "FeatureType",
-                  "symbols": [ "Feature" ]
+                  "symbols": [
+                    "Feature"
+                  ]
                 },
                 "default": "Feature"
               },
@@ -70,11 +74,12 @@
                     "fields": [
                       {
                         "name": "type",
-
                         "type": {
                           "type": "enum",
                           "name": "PointType",
-                          "symbols": [ "Point" ]
+                          "symbols": [
+                            "Point"
+                          ]
                         },
                         "default": "Point"
                       },
@@ -83,6 +88,36 @@
                         "type": {
                           "type": "array",
                           "items": "double"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "name": "MultiPoint",
+                    "namespace": "eu.driver.model.sim.support.geojson.geometry",
+                    "doc": "Describes a collection of points geometry",
+                    "type": "record",
+                    "fields": [
+                      {
+                        "name": "type",
+                        "type": {
+                          "name": "MultiPointType",
+                          "namespace": "eu.driver.model.sim.support.geojson.geometry",
+                          "type": "enum",
+                          "symbols": [
+                            "MultiPoint"
+                          ]
+                        },
+                        "default": "MultiPoint"
+                      },
+                      {
+                        "name": "coordinates",
+                        "type": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": "double"
+                          }
                         }
                       }
                     ]
@@ -98,7 +133,9 @@
                         "type": {
                           "type": "enum",
                           "name": "LineStringType",
-                          "symbols": [ "LineString" ]
+                          "symbols": [
+                            "LineString"
+                          ]
                         },
                         "default": "LineString"
                       },
@@ -126,7 +163,9 @@
                         "type": {
                           "type": "enum",
                           "name": "MultiLineStringType",
-                          "symbols": [ "MultiLineString" ]
+                          "symbols": [
+                            "MultiLineString"
+                          ]
                         },
                         "default": "MultiLineString"
                       },
@@ -157,7 +196,9 @@
                         "type": {
                           "type": "enum",
                           "name": "PolygonType",
-                          "symbols": [ "Polygon" ]
+                          "symbols": [
+                            "Polygon"
+                          ]
                         },
                         "default": "Polygon"
                       },
@@ -188,7 +229,9 @@
                         "type": {
                           "type": "enum",
                           "name": "MultiPolygonType",
-                          "symbols": [ "MultiPolygon" ]
+                          "symbols": [
+                            "MultiPolygon"
+                          ]
                         },
                         "default": "MultiPolygon"
                       },
@@ -229,11 +272,27 @@
                     "double",
                     {
                       "type": "array",
-                      "items": [ "null", "boolean", "string", "int", "long", "float", "double" ]
+                      "items": [
+                        "null",
+                        "boolean",
+                        "string",
+                        "int",
+                        "long",
+                        "float",
+                        "double"
+                      ]
                     },
                     {
                       "type": "map",
-                      "values": [ "null", "boolean", "string", "int", "long", "float", "double" ]
+                      "values": [
+                        "null",
+                        "boolean",
+                        "string",
+                        "int",
+                        "long",
+                        "float",
+                        "double"
+                      ]
                     }
                   ]
                 }
