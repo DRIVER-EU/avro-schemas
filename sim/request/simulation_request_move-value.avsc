@@ -71,7 +71,7 @@
     },
     {
       "name": "route",
-      "doc": "Optional feature collection identifier of the preferred route that should be followed. This property should not be used together with the waypoints property",
+      "doc": "Optional unique identifier of a feature collection representing the preferred route that should be followed. This property should not be used together with the waypoints property",
       "type": ["null", "string"],
       "default": null
     },

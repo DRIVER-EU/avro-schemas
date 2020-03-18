@@ -445,13 +445,7 @@
 				  ],
 								  "default": null
 				},
-							  {
-								  "name": "orientation",
-								  "doc": "Optional orientation of the feature",
-								  "type": ["null", "eu.driver.model.sim.support.Orientation"],
-								  "default": null
-							  },
-							  {
+				{
 				  "name": "bbox",
 								  "doc": "Optional bounding box around the feature in the following order [west, south, east, north]. Length(bbox)=2xn, where n is the number of dimensions represented in the contained geometry, with all axes of the most south-westerly point followed by all axes of the more north-easterly point. The axes order of a bbox follows the axes order of the geometry. The bbox values define shapes with edges that follow lines of constant longitude, latitude, and elevation",
 				  "type": [
