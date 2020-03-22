@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "name": "TimingControl",
-  "namespace": "eu.driver.model.core",
-  "doc": "TimingControl message to distribute the trial time changes.",
+  "name": "TimeControl",
+  "namespace": "eu.driver.sim.config",
+  "doc": "Message to control the simulation time: start/stop/pause the simulation, and specify time and speed of it.",
   "fields": [
     {
       "name": "command",
@@ -15,18 +15,17 @@
       "doc": "The type of command to switch the state of the time-service."
     },
     {
-      "name": "trialTime",
+      "name": "simulationTime",
       "type": ["null", "long"],
       "default": null,
       "logicalType": "timestamp-millis",
-      "doc":
-        "The date and time the distribution message was sent as the number of milliseconds from the unix epoch, 1 January 1970 00:00:00.000 UTC."
+      "doc": "Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with."
     },
     {
-      "name": "trialTimeSpeed",
+      "name": "simulationSpeed",
       "type": ["null", "float"],
       "default": null,
-      "doc": "The Trialtime speed factor."
+      "doc": "Optional speed factor to run the simulation. The range of this speed factor is [0, infinity)."
     }
   ]
 }
