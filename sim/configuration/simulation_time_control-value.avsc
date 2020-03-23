@@ -7,8 +7,8 @@
     {
       "name": "command",
       "type": {
-        "name": "Command",
-        "namespace": "eu.driver.model.core",
+        "name": "TimeCommand",
+        "namespace": "eu.driver.model.sim.config",
         "type": "enum",
         "symbols": [
           "Init",
