@@ -1,0 +1,29 @@
+{
+  "type": "record",
+  "name": "ChainScenarioUpdate",
+  "namespace": "eu.driver.model.geo",
+  "doc": "Chain effect scenario description",
+  "fields": [{
+      "name": "scenarioId",
+      "type": "string",
+      "doc": "ID of the scenario"
+    },
+    {
+      "name": "simId",
+      "type": "string",
+      "doc": "ID of the simulator"
+    },
+    {
+      "name": "simStatus",
+      "type": {
+        "type": "enum",
+        "name": "SimStatus",
+        "symbols": [
+          "INITIAL",
+          "UPDATE",
+          "FINISHED"
+        ]
+      }
+    }
+  ]
+}

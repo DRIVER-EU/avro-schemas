@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "asciilayer",
+  "namespace": "eu.driver.model.geo",
+  "doc": "Grid layer in ascii grid format",
+  "fields": [{
+      "name": "id",
+      "type": "string",
+      "doc": "ID of the scenario"
+    },
+    {
+      "name": "timestamp",
+      "type": "long",
+      "logicalType": "timestamp-millis",
+      "doc": "The time in number of milliseconds from the start"
+    },
+    {
+      "name": "data",
+      "type": "string",
+      "doc": "The flooding data"
+    }
+  ]
+}
