@@ -9,153 +9,176 @@
       "doc": "Unique case-insensitive identifier of the post",
       "type": "string"
     },
-		{
+    {
       "name": "body",
       "doc": "Body text of the post",
       "type": "string"
     },
-		{
+    {
       "name": "header",
       "doc": "Optional header information of the post",
       "type": [
-				"null",
-				{
-					"name": "Header",
-					"namespace": "eu.driver.model.sim.support",
-					"type": "record",
-					"fields": [
-						{
-							"name": "from",
-							"doc": "Sender of the post",
-							"type": "string"
-						},
-						{
-							"name": "date",
-							"doc": "UNIX Epoch time in milliseconds marking the time the post was published/updated",
-							"type": "long",
-							"logicalType": "timestamp-millis"
-						},
-						{
-							"name": "to",
-							"doc": "Optional list of recipients of the post",
-							"type": [
-								"null",
-								{
-									"type": "array",
-									"items": "string"
-								}
-							],
-							"default": null
-						},
-						{
-							"name": "cc",
-							"doc": "Optional list of recipients in carbon copy of the post",
-							"type": [
-								"null",
-								{
-									"type": "array",
-									"items": "string"
-								}
-							],
-							"default": null
-						},
-						{
-							"name": "bcc",
-							"doc": "Optional list of recipients in blind carbon copy of the post",
-							"type": [
-								"null",
-								{
-									"type": "array",
-									"items": "string"
-								}
-							],
-							"default": null
-						},
-						{
-							"name": "subject",
-							"doc": "Optional subject of the post",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "intro",
-							"doc": "Optional introductory text of the post",
-							"type": ["null", "string"],
-							"default": null
-						},
-						{
-							"name": "attachments",
-							"doc": "Optional map of (references to) attachments inside the post: key – unique reference to the attachment (e.g. URI) or complete string-encoded attachment; value – media type of the attachment (e.g. .pdf, .png, .zip)",
-							"type": [
-								"null",
-								{
-									"type": "map",
-									"values": "string"
-								}
-							],
-							"default": null
-						},
-						{
-							"name": "location",
-							"doc": "Optional location of the sender of the post",
-							"type": [
-								"null",
-								{
-									"name": "Location",
-									"namespace": "eu.driver.model.sim.support",
-									"doc": "A location is defined as a WGS84-based standard representation of a location on earth",
-									"type": "record",
-									"fields": [
-										{
-											"name": "latitude",
-											"doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
-											"type": "double"
-										},
-										{
-											"name": "longitude",
-											"doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
-											"type": "double"
-										},
-										{
-											"name": "altitude",
-											"doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates",
-											"type": ["null", "double"],
-											"default": null
-										}
-									]
-								}
-							],
-							"default": null
-						}
-					]
-				}
-			],
+        "null",
+        {
+          "name": "Header",
+          "namespace": "eu.driver.model.sim.support",
+          "type": "record",
+          "fields": [
+            {
+              "name": "from",
+              "doc": "Sender of the post",
+              "type": "string"
+            },
+            {
+              "name": "date",
+              "doc": "UNIX Epoch time in milliseconds marking the time the post was published/updated",
+              "type": "long",
+              "logicalType": "timestamp-millis"
+            },
+            {
+              "name": "to",
+              "doc": "Optional list of recipients of the post",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "cc",
+              "doc": "Optional list of recipients in carbon copy of the post",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "bcc",
+              "doc": "Optional list of recipients in blind carbon copy of the post",
+              "type": [
+                "null",
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "subject",
+              "doc": "Optional subject of the post",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "intro",
+              "doc": "Optional introductory text of the post",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "attachments",
+              "doc": "Optional map of (references to) attachments inside the post: key – unique reference to the attachment (e.g. URI) or complete string-encoded attachment; value – media type of the attachment (e.g. .pdf, .png, .zip)",
+              "type": [
+                "null",
+                {
+                  "type": "map",
+                  "values": "string"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "location",
+              "doc": "Optional location of the sender of the post",
+              "type": [
+                "null",
+                {
+                  "name": "Location",
+                  "namespace": "eu.driver.model.sim.support",
+                  "doc": "A location is defined as a WGS84-based standard representation of a location on earth",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "latitude",
+                      "doc": "In decimal degrees, ranging from [-90, 90] where 0 is the equator",
+                      "type": "double"
+                    },
+                    {
+                      "name": "longitude",
+                      "doc": "In decimal degrees, ranging from (-180, 180] where 0 is the Prime Meridian (line going through the geographic north, Greenwich, and the geographic south)",
+                      "type": "double"
+                    },
+                    {
+                      "name": "altitude",
+                      "doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates",
+                      "type": [
+                        "null",
+                        "double"
+                      ],
+                      "default": null
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
       "default": null
     },
-		{
+    {
       "name": "name",
       "doc": "Optional name of the post",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "type",
       "doc": "Optional type of the post",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
     {
       "name": "owner",
       "doc": "Optional unique case-insensitive identifier of the connected application owning the post",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "timestamp",
-			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
-      "type": ["null", "long"],
-      "logicalType": "timestamp-millis",
-			"default": null
+      "doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null
     },
     {
       "name": "tags",

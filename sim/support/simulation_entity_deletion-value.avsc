@@ -12,15 +12,23 @@
     {
       "name": "owner",
       "doc": "Optional unique case-insensitive identifier of the connected application owning the entity",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "timestamp",
-			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
-      "type": ["null", "long"],
-      "logicalType": "timestamp-millis",
-			"default": null
+      "doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null
     }
   ]
 }

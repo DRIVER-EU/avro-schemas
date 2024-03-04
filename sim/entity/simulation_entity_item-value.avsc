@@ -9,7 +9,7 @@
       "doc": "Unique case-insensitive identifier of the item",
       "type": "string"
     },
-		{
+    {
       "name": "location",
       "doc": "Location of the item",
       "type": {
@@ -31,104 +31,124 @@
           {
             "name": "altitude",
             "doc": "Optional in meters, where 0 is the surface of the WGS84-based ellipsoid, or another agreed upon common ground level (specified inside the configuration guidelines). A positive number indicates a location outside the ellipsoid (or above the ground level), while a negative number indicates a location inside the ellipsoid (or below the ground level). If an altitude is not provided, it is presumed that the location is at the ground level of the provided latitude and longitude coordinates",
-            "type": ["null", "double"],
+            "type": [
+              "null",
+              "double"
+            ],
             "default": null
           }
         ]
       }
     },
-		{
+    {
       "name": "orientation",
       "doc": "Optional orientation of the item",
       "type": [
-				"null",
-				{
-					"name": "Orientation",
-					"namespace": "eu.driver.model.sim.support",
-					"doc": "An orientation is defined in the aviation axes conventions representation. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing away from the centre of the WGS84-based ellipsoid, its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
-					"type": "record",
-					"fields": [
-						{
-							"name": "yaw",
-							"doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
-							"type": "double"
-						},
-						{
-							"name": "pitch",
-							"doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
-							"type": "double"
-						},
-						{
-							"name": "roll",
-							"doc": "In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left",
-							"type": "double"
-						}
-					]
-				}
-			],
-			"default": null
+        "null",
+        {
+          "name": "Orientation",
+          "namespace": "eu.driver.model.sim.support",
+          "doc": "An orientation is defined in the aviation axes conventions representation. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing away from the centre of the WGS84-based ellipsoid, its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
+          "type": "record",
+          "fields": [
+            {
+              "name": "yaw",
+              "doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
+              "type": "double"
+            },
+            {
+              "name": "pitch",
+              "doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
+              "type": "double"
+            },
+            {
+              "name": "roll",
+              "doc": "In decimal degrees, ranging from (-180, 180] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The roll value is applied in a clockwise rotation over the item’s roll/bank-axis. A roll value of 45 makes the item roll 45 degrees to the right, while a roll of -50 makes it roll 50 degrees to the left",
+              "type": "double"
+            }
+          ]
+        }
+      ],
+      "default": null
     },
     {
       "name": "velocity",
       "doc": "Optional velocity of the item",
       "type": [
-				"null",
-				{
-					"name": "Velocity",
-					"namespace": "eu.driver.model.sim.support",
-					"doc": "A velocity is defined in the aviation axes conventions representation of a velocity vector. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing away from the centre of the WGS84-based ellipsoid, its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
-					"type": "record",
-					"fields": [
-						{
-							"name": "yaw",
-							"doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
-							"type": "double"
-						},
-						{
-							"name": "pitch",
-							"doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
-							"type": "double"
-						},
-						{
-							"name": "magnitude",
-							"doc": "In meter per seconds, ranging from [0, infinity) where 0 is standing still relative to the earth’s rotation",
-							"type": "double"
-						}
-					]
-				}
-			],
-			"default": null
+        "null",
+        {
+          "name": "Velocity",
+          "namespace": "eu.driver.model.sim.support",
+          "doc": "A velocity is defined in the aviation axes conventions representation of a velocity vector. It is a left-handed item-centric reference system, with in default initial state its heading/yaw-axis pointing away from the centre of the WGS84-based ellipsoid, its pitch-axis pointing to the right, and its roll/bank-axis pointing forward",
+          "type": "record",
+          "fields": [
+            {
+              "name": "yaw",
+              "doc": "In decimal degrees, ranging from [0, 360) where 0 is pointing towards the geographic north. The yaw value is applied in a clockwise rotation over the item’s heading/yaw-axis. A yaw value of 90 makes the item face east, while a yaw of 270 makes it face west",
+              "type": "double"
+            },
+            {
+              "name": "pitch",
+              "doc": "In decimal degrees, ranging from [-90, 90] where 0 is perpendicular to the line crossing the item’s location and the centre of the WGS84-based ellipsoid. The pitch value is applied in a counter-clockwise rotation over the item’s pitch-axis. A pitch value of 45 makes the item face 45 degrees upwards, while a pitch of -20 makes it face 20 degrees downwards",
+              "type": "double"
+            },
+            {
+              "name": "magnitude",
+              "doc": "In meter per seconds, ranging from [0, infinity) where 0 is standing still relative to the earth’s rotation",
+              "type": "double"
+            }
+          ]
+        }
+      ],
+      "default": null
     },
     {
       "name": "name",
       "doc": "Optional name of the item",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "description",
       "doc": "Optional description of the item",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "type",
       "doc": "Optional type of the item",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
     {
       "name": "owner",
       "doc": "Optional unique case-insensitive identifier of the connected application owning the item",
-      "type": ["null", "string"],
-			"default": null
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
     },
-		{
+    {
       "name": "timestamp",
-			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
-      "type": ["null", "long"],
-      "logicalType": "timestamp-millis",
-			"default": null
+      "doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null
     },
     {
       "name": "tags",
@@ -142,7 +162,7 @@
       ],
       "default": null
     },
-		{
+    {
       "name": "children",
       "doc": "Optional list of item identifiers that belong to this item",
       "type": [

@@ -14,12 +14,17 @@
       "doc": "Unique case-insensitive identifier of the connected application sending the request",
       "type": "string"
     },
-		{
+    {
       "name": "timestamp",
-			"doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
-      "type": ["null", "long"],
-      "logicalType": "timestamp-millis",
-			"default": null
+      "doc": "Optional UNIX Epoch time in milliseconds marking the time the update was performed",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null
     }
   ]
 }

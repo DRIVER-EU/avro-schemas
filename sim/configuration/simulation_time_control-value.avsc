@@ -25,10 +25,12 @@
       "name": "simulationTime",
       "type": [
         "null",
-        "long"
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
       ],
       "default": null,
-      "logicalType": "timestamp-millis",
       "doc": "Optional UNIX Epoch time in milliseconds marking the fictive date and time the session should run with."
     },
     {
